@@ -475,6 +475,3 @@ wind_data,lat_wind_area,number,m^2,Lateral projected area for wind.,This is the 
 wind_data,al,number,m^2,Lateral projected area of the ship above the waterline (used for wind force calculations).,"Deprecated, use lat_wind_area instead.",>= 0,,6185,wind_data.al,DEPRECATED,
 wind_data,n_ship_heights,int,,,,,,5,wind_data.n_ship_heights,active,pending
 wind_data,trans_wind_area,number,m^2,Transverse projected area for wind.,This is the correct field to use.,>= 0,,996,wind_data.trans_wind_area,REQUIRED,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
