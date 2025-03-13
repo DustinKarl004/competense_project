@@ -1,177 +1,253 @@
 section,field,type,units,description,notes,constraints,default,example,json_path,status,Review status
 added_mass_coeff_data,a11,number,,Added mass coefficient in surge.,,,0,-0.06,added_mass_coeff_data.a11,OPTIONAL,Check
+added_mass_coeff_data,a26,number,,Added mass coefficient in sway-yaw coupling.,,,0,0,added_mass_coeff_data.a26,OPTIONAL,Check
+added_mass_coeff_data,a44,number,,Added mass coefficient in roll.,,,0,-0.006,added_mass_coeff_data.a44,OPTIONAL,Check
 added_mass_coeff_data,a15,number,,Added mass coefficient in surge-pitch coupling.,,,0,0,added_mass_coeff_data.a15,OPTIONAL,Check
 added_mass_coeff_data,a22,number,,Added mass coefficient in sway.,,,0,-0.8,added_mass_coeff_data.a22,OPTIONAL,Check
-added_mass_coeff_data,a24,number,,Added mass coefficient in sway-roll coupling.,,,0,0,added_mass_coeff_data.a24,OPTIONAL,Check
-added_mass_coeff_data,a26,number,,Added mass coefficient in sway-yaw coupling.,,,0,0,added_mass_coeff_data.a26,OPTIONAL,Check
 added_mass_coeff_data,a33,number,,Added mass coefficient in heave.,,,0,0,added_mass_coeff_data.a33,OPTIONAL,Check
 added_mass_coeff_data,a35,number,,Added mass coefficient in heave-pitch coupling.,,,0,0,added_mass_coeff_data.a35,OPTIONAL,Check
-added_mass_coeff_data,a44,number,,Added mass coefficient in roll.,,,0,-0.006,added_mass_coeff_data.a44,OPTIONAL,Check
+added_mass_coeff_data,a24,number,,Added mass coefficient in sway-roll coupling.,,,0,0,added_mass_coeff_data.a24,OPTIONAL,Check
 added_mass_coeff_data,a46,number,,Added mass coefficient in roll-yaw coupling.,,,0,0,added_mass_coeff_data.a46,OPTIONAL,Check
-added_mass_coeff_data,a55,number,,Added mass coefficient in pitch.,,,0,0,added_mass_coeff_data.a55,OPTIONAL,Check
 added_mass_coeff_data,a66,number,,Added mass coefficient in yaw.,,,0,-0.04,added_mass_coeff_data.a66,OPTIONAL,Check
-anchor_data,,array/objec,,,,,,,,,Check
-anchor_data,,number,,Number of anchors,,,0,2,anchor_data.nan,REQUIRED,Check
-anchor_data,xanch/xanh,number,m,Longitudinal position of anchor (from Lpp/2).,Positive fwd of amidships.,,0,93.5,anchor_data.xanch,REQUIRED,Check
-anchor_data,yan/yanh,number,m,Transverse position of anchor (from centerline).,Positive to port,,0,-10.58,anchor_data.yan,REQUIRED,Check
-anchor_data,zanch/zanh,number,m,Vertical position of anchor hawsepipe (from baseline).,SEAMAN Z-axis is positive *downwards*.,,0,0.0,anchor_data.zanch,REQUIRED,Check
+added_mass_coeff_data,kpd,float,,,,,,-0.00159,added_mass_coeff_data.kpd,active,pending
+added_mass_coeff_data,nrd,float,,,,,,-0.01837,added_mass_coeff_data.nrd,active,pending
+added_mass_coeff_data,xud,float,,,,,,-0.06,added_mass_coeff_data.xud,active,pending
+added_mass_coeff_data,a55,number,,Added mass coefficient in pitch.,,,0,0,added_mass_coeff_data.a55,OPTIONAL,Check
+added_mass_coeff_data,yvd,float,,,,,,-0.83843,added_mass_coeff_data.yvd,active,pending
 anchor_data,lchain,number,m,Length of anchor chain,,,0,631.0,anchor_data.lchain,REQUIRED,Check
 anchor_data,han,number,kN,Anchor holding capacity.,,,0,,anchor_data.han,OPTIONAL,Check
+anchor_data,,number,,Number of anchors,,,0,2,anchor_data.nan,REQUIRED,Check
 anchor_data,dan,number,,Anchor and chain drag coefficient.,,,0,,anchor_data.dan,OPTIONAL,Check
-anchor_data,depth,number,m,Water depth,,,0,,anchor_data.depth,OPTIONAL,Check
-anchor_data,dcab,number,,Anchor Cable diameter,,,0,,,OPTIONAL,Check
-anchor_data,lcabtot,number,m,Total cable length,Check if this exist!,,0,,,OPTIONAL,Check
-anchor_data,pwwl,number,,Proof load of windlass.,,,0,,,OPTIONAL,Check
-anchor_data,wanc,number,,Anchor weight.,,,,,,,Check
-anchor_data,wcbl,,,Cable weight.,,,,,,,Check
+anchor_data,yan/yanh,number,m,Transverse position of anchor (from centerline).,Positive to port,,0,-10.58,anchor_data.yan,REQUIRED,Check
 anchor_data,wlrmax,number,m,Maximum lowering speed of windlass,,,0,,,OPTIONAL,Check
-ap_data,,array/object,,,,,,,,,Check
+anchor_data,wanc,number,,Anchor weight.,,,,,,,Check
+anchor_data,zanch/zanh,number,m,Vertical position of anchor hawsepipe (from baseline).,SEAMAN Z-axis is positive *downwards*.,,0,0.0,anchor_data.zanch,REQUIRED,Check
+anchor_data,xanch/xanh,number,m,Longitudinal position of anchor (from Lpp/2).,Positive fwd of amidships.,,0,93.5,anchor_data.xanch,REQUIRED,Check
+anchor_data,lcabtot,number,m,Total cable length,Check if this exist!,,0,,,OPTIONAL,Check
+anchor_data,,array/objec,,,,,,,,,Check
+anchor_data,wcbl,,,Cable weight.,,,,,,,Check
+anchor_data,depth,number,m,Water depth,,,0,,anchor_data.depth,OPTIONAL,Check
+anchor_data,pwwl,number,,Proof load of windlass.,,,0,,,OPTIONAL,Check
+anchor_data,dcab,number,,Anchor Cable diameter,,,0,,,OPTIONAL,Check
+ap_data,tiap, number, s, Autopilot Time Constant (TI),, , , , ap_data.tiap, OPTIONAL,
+ap_data,dtap,number,s,Autopilot Time Step,Positive number,, , , ap_data.dtap,OPTIONAL,
 ap_data,isel,number,,Autopilot mode selection (see SEAMAN documentation).,,,1,1,ap_data.isel,REQUIRED,Check
-ap_data,k,number,,Proportional gain,,,0.5,0.5,ap_data.k,REQUIRED,Check
 ap_data,ti,number,s,Integral time constant,,,100,100,ap_data.ti,REQUIRED,Check
-ap_data,td,number,s,Derivative time constant,,,2,2,ap_data.td,REQUIRED,Check
-ap_data,k1,number,,Derivative gain,,,10,10,ap_data.k1,REQUIRED,Check
-ap_data,k2,number,,Integral gain,,,0.01,0.01,ap_data.k2,REQUIRED,Check
 ap_data,imin,number,,Autopilot integrator minimum value.,,,0,0,ap_data.imin,REQUIRED,Check
+ap_data,k2,number,,Integral gain,,,0.01,0.01,ap_data.k2,REQUIRED,Check
+ap_data,ramp, number, s, Ramp time/rate for autopilot actions.,,,1, 1, ap_data.ramp, OPTIONAL,Check
 ap_data,imax,number,,Autopilot integrator maximum value.,,,1,1,ap_data.imax,REQUIRED,Check
+ap_data,,array/object,,,,,,,,,Check
 ap_data,dmax,number,deg/s,Maximum rudder rate for autopilot.,,,5,5,ap_data.dmax,REQUIRED,Check
 ap_data,alphamax,number,deg,Maximum rudder angle for autopilot.,,,35,35,ap_data.alphamax,REQUIRED,Check
 ap_data,delta,number,deg,Rudder angle increment,,,1,1,ap_data.delta,REQUIRED,Check
-ap_data,ramp, number, s, Ramp time/rate for autopilot actions.,,,1, 1, ap_data.ramp, OPTIONAL,Check
+ap_data,k,number,,Proportional gain,,,0.5,0.5,ap_data.k,REQUIRED,Check
+ap_data,td,number,s,Derivative time constant,,,2,2,ap_data.td,REQUIRED,Check
 ap_data,tref, number, s, Time constant (context dependent) Autopilot Reference (TREF),Context dependent,,1, 1, ap_data.tref, OPTIONAL,Check
+ap_data,k1,number,,Derivative gain,,,10,10,ap_data.k1,REQUIRED,Check
 ap_data,maxcap, number, rad/s, Maximum Course Alteration,Likely radians/second, despite description suggesting degrees/second. Carefully check units,, , ap_data.maxcap, REQUIRED,Check
-ap_data,aptype, number, , Autopilot Type,Code representing the type of autopilot,Integer; specific valid values depend on the SEAMAN implementation., , 1, ap_data.aptype, OPTIONAL,
-ap_data,omgap, number, , Autopilot Parameter (OMG), Context Dependent, , , , ap_data.omgap, OPTIONAL,
 ap_data,rref1, number, , Autopilot Reference (RREF1), Context Dependent, , , , ap_data.rref1, OPTIONAL,
 ap_data,tdap, number, s, Autopilot Time Constant (TD), , , , , ap_data.tdap, OPTIONAL,
-ap_data,tiap, number, s, Autopilot Time Constant (TI),, , , , ap_data.tiap, OPTIONAL,
-ap_data,dtap,number,s,Autopilot Time Step,Positive number,, , , ap_data.dtap,OPTIONAL,
-azimuth_data,,array,,Azimuth data,Always an empty array.,,,,,,
-ballast_tanks,,array,,Ballast tanks,Always an empty array.,,,,,,
+ap_data,pid_td,int,,,,,,32,ap_data.pid_td,active,pending
+ap_data,k0ap,float,,,,,,0.0,ap_data.k0ap,active,pending
+ap_data,pid_kp,float,,,,,,2.7,ap_data.pid_kp,active,pending
+ap_data,omgap, number, , Autopilot Parameter (OMG), Context Dependent, , , , ap_data.omgap, OPTIONAL,
+ap_data,pid_ti,int,,,,,,105,ap_data.pid_ti,active,pending
+ap_data,a_ship,float,,,,,,3.2,ap_data.a_ship,active,pending
+ap_data,kdap,float,,,,,,0.0,ap_data.kdap,active,pending
+ap_data,aptype, number, , Autopilot Type,Code representing the type of autopilot,Integer; specific valid values depend on the SEAMAN implementation., , 1, ap_data.aptype, OPTIONAL,
 appendage_data,rapp,number,m^2,Total appendage resistance area.,,,,25.0,appendage_data.rapp,REQUIRED,
-appendage_data,rappl,number,m,Longitudinal position of appendage resistance area (from Lpp/2).,,,,75.0,appendage_data.rappl,REQUIRED,
 appendage_data,capp,number,,Appendage resistance coefficient.,,,,1.2,appendage_data.capp,REQUIRED,
 appendage_data,cstern,number,,Stern shape coefficient.,,,,0.8,appendage_data.cstern,OPTIONAL,
+appendage_data,rappl,number,m,Longitudinal position of appendage resistance area (from Lpp/2).,,,,75.0,appendage_data.rappl,REQUIRED,
+azimuth_data,,array,,Azimuth data,Always an empty array.,,,,,,
+ballast_tanks,,array,,Ballast tanks,Always an empty array.,,,,,,
 bilge_keel_data,lblk,number,m,Length of bilge keels.,,,,40.0,bilge_keel_data.lblk,REQUIRED,
 bilge_keel_data,bblk,number,m,Width of one bilge keel.,,,0,0,bilge_keel_data.bblk,REQUIRED,
 bilge_keel_data,zblk,number,m,Vertical position of bilge keels (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-6.0,bilge_keel_data.zblk,REQUIRED,
 bilge_keel_data,ablk,number,m^2,Total area of bilge keels.,,,,50.0,bilge_keel_data.ablk,REQUIRED,
-bridge_position,,array/object,,,Can be an array of objects.,,,,,,
-bridge_position,xb/xbr,number,m,Longitudinal position of bridge (from Lpp/2).,+ve forward,,0,120,bridge_position.xb,REQUIRED,
+bollards,zkl,list,,,,,,"[8, 8]",bollards.zkl,active,pending
+bollards,xkl,list,,,,,,"[-85, 85]",bollards.xkl,active,pending
+bollards,ykl,list,,,,,,"[0, 0]",bollards.ykl,active,pending
 bridge_position,yb/ybr,number,m,Transverse position of bridge (from centerline).,+ve port,,0,0,bridge_position.yb,REQUIRED,
-bridge_position,zb/zbr,number,m,Vertical position of bridge (from baseline).,SEAMAN Z-axis is positive *downwards*.,,0,-15,bridge_position.zb,REQUIRED,
-bridge_position,viewid,string/number,,Identifier for the bridge view.,Can be a string or a number.,,0,1,bridge_position.viewid,REQUIRED,
+bridge_position,xb/xbr,number,m,Longitudinal position of bridge (from Lpp/2).,+ve forward,,0,120,bridge_position.xb,REQUIRED,
+bridge_position,,array/object,,,Can be an array of objects.,,,,,,
 bridge_position,hbr,number,degrees,Heading at the bridge view point.,Only if bridge_position is an object or an element of bridge_position array.,Between -180 to 180 deg,0,0,bridge_position.hbr,OPTIONAL,
-combinator,jdpset,array of number,-,Index defining the combinator curve.,Defines the combinator curve,"Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0, 1, 2, 3]",combinator[*].jdpset,REQUIRED,
+bridge_position,viewid,string/number,,Identifier for the bridge view.,Can be a string or a number.,,0,1,bridge_position.viewid,REQUIRED,
+bridge_position,zb/zbr,number,m,Vertical position of bridge (from baseline).,SEAMAN Z-axis is positive *downwards*.,,0,-15,bridge_position.zb,REQUIRED,
 combinator,nset,array of number,rpm,Desired Shaft Speed., Speed.	Corresponds to the combinator curve. This is an array of shaft speeds within each combinator setting.,"Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0, 40, 80, 120] <br> [0, 50, 100]",combinator[*].nset,REQUIRED,
-combinator,pdfset,array of number,-,Desired Pitch/Diameter ratio for fixed pitch.,"If fixed pitch, this defines P/D. This is an array of P/D ratios within each combinator setting. For CPP, these should generally be 0.","Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0, 0, 0, 0]",combinator[*].pdset,CONDITIONAL,
-combinator,pdset,array of number,-,Desired Pitch/Diameter ratio for controllable pitch.,"If controllable pitch, this defines P/D. This is an array of P/D ratios within each combinator setting.","Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0.6, 0.8, 1.0, 1.2] <br> [0.7, 0.9, 1.1]",combinator.pdset,CONDITIONAL,
+combinator,jdpset,array of number,-,Index defining the combinator curve.,Defines the combinator curve,"Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0, 1, 2, 3]",combinator[*].jdpset,REQUIRED,
 combinator,id,number,,Identifier of the combinator,Each combinator inside the array of combinators must have an id.,,,comb1??,combinator[*].id,REQUIRED,
-cp_prop_data,propeller_id,string,,Unique identifier for this propeller.,Unique identifier for this propeller.,MUST be unique within the file.,,,cp_prop_data.propeller_id,CONDITIONAL,
+combinator,pdset,array of number,-,Desired Pitch/Diameter ratio for controllable pitch.,"If controllable pitch, this defines P/D. This is an array of P/D ratios within each combinator setting.","Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0.6, 0.8, 1.0, 1.2] <br> [0.7, 0.9, 1.1]",combinator.pdset,CONDITIONAL,
+combinator,pdfset,array of number,-,Desired Pitch/Diameter ratio for fixed pitch.,"If fixed pitch, this defines P/D. This is an array of P/D ratios within each combinator setting. For CPP, these should generally be 0.","Lengths of jdpset, nset, pdfset, and pdset MUST be equal within each combinator object.",,"[0, 0, 0, 0]",combinator[*].pdset,CONDITIONAL,
+contour_data,xqc,list,,,,,,"[87.18, 74.77, 48.97, -92.4, -99.27, -99.27, -92.4, 48.97, 74.77]",contour_data.xqc,active,pending
+contour_data,yqc,list,,,,,,"[0.46, 7.12, 13.79, 13.9, 13.9, -13.9, -13.9, -13.79, -7.12]",contour_data.yqc,active,pending
+cp_prop_data,xpc,number,m,"Longitudinal position of the propeller center, used for coordinate transformation.",,,,5.5,cp_prop_data.xpc,OPTIONAL,
+cp_prop_data,pitch,number,m,Propeller pitch (at 0.7R).,,,,7.0,cp_prop_data.pitch,REQUIRED,
 cp_prop_data,nprop,number,,Number of propellers.,,,,1,cp_prop_data.nprop,REQUIRED,
-cp_prop_data,diam,number,m,Propeller diameter.,,,,7.0,cp_prop_data.diam,REQUIRED,
+cp_prop_data,zp,number,m,Vertical position of propeller (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-9.0,cp_prop_data.zp,REQUIRED,
 cp_prop_data,xp,number,m,Longitudinal position of propeller (from Lpp/2).,+ve forward,,,5.5,cp_prop_data.xp,REQUIRED,
 cp_prop_data,yp,number,m,Transverse position of propeller (from centerline).,+ve port,,,0.0,cp_prop_data.yp,REQUIRED,
-cp_prop_data,zp,number,m,Vertical position of propeller (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-9.0,cp_prop_data.zp,REQUIRED,
-cp_prop_data,xa,number,m,Longitudinal position of the propeller disk (x coordinate in the ship's reference frame),,,,5.5,cp_prop_data.xa,REQUIRED,
-cp_prop_data,nblades,number,,Number of propeller blades.,,,,4,cp_prop_data.nblades,REQUIRED,
-cp_prop_data,blade_area_ratio,number,,Expanded blade area ratio.,,,,0.65,cp_prop_data.blade_area_ratio,REQUIRED,
-cp_prop_data,hub_ratio,number,,Hub diameter ratio.,,,,0.15,cp_prop_data.hub_ratio,REQUIRED,
-cp_prop_data,pitch,number,m,Propeller pitch (at 0.7R).,,,,7.0,cp_prop_data.pitch,REQUIRED,
-cp_prop_data,rdiam,number, m, Rudder diameter,,,7,7.0,cp_prop_data.rdiam, REQUIRED,
-cp_prop_data,rake,number,rad,Propeller rake angle.,,,,0.1,cp_prop_data.rake,REQUIRED,
 cp_prop_data,skew,number,rad,Propeller skew angle.,,,,0.2,cp_prop_data.skew,REQUIRED,
-cp_prop_data,xpc,number,m,"Longitudinal position of the propeller center, used for coordinate transformation.",,,,5.5,cp_prop_data.xpc,OPTIONAL,
-damping_coeff_data,b11,number,,Damping coefficient in surge.,,,0,0,damping_coeff_data.b11,OPTIONAL,
-damping_coeff_data,b15,number,,Damping coefficient in surge-roll coupling.,,,0,0,damping_coeff_data.b15,OPTIONAL,
-damping_coeff_data,b22,number,,Damping coefficient in sway.,,,0,0,damping_coeff_data.b22,OPTIONAL,
-damping_coeff_data,b24,number,,Damping coefficient in sway-roll coupling.,,,0,0,damping_coeff_data.b24,OPTIONAL,
+cp_prop_data,nblades,number,,Number of propeller blades.,,,,4,cp_prop_data.nblades,REQUIRED,
+cp_prop_data,rake,number,rad,Propeller rake angle.,,,,0.1,cp_prop_data.rake,REQUIRED,
+cp_prop_data,blade_area_ratio,number,,Expanded blade area ratio.,,,,0.65,cp_prop_data.blade_area_ratio,REQUIRED,
+cp_prop_data,xa,number,m,Longitudinal position of the propeller disk (x coordinate in the ship's reference frame),,,,5.5,cp_prop_data.xa,REQUIRED,
+cp_prop_data,hub_ratio,number,,Hub diameter ratio.,,,,0.15,cp_prop_data.hub_ratio,REQUIRED,
+cp_prop_data,diam,number,m,Propeller diameter.,,,,7.0,cp_prop_data.diam,REQUIRED,
+cp_prop_data,rdiam,number, m, Rudder diameter,,,7,7.0,cp_prop_data.rdiam, REQUIRED,
+cp_prop_data,propeller_id,string,,Unique identifier for this propeller.,Unique identifier for this propeller.,MUST be unique within the file.,,,cp_prop_data.propeller_id,CONDITIONAL,
 damping_coeff_data,b26,number,,Damping coefficient in sway-yaw coupling.,,,0,0,damping_coeff_data.b26,OPTIONAL,
-damping_coeff_data,b33,number,,Damping coefficient in heave.,,,0,0,damping_coeff_data.b33,OPTIONAL,
-damping_coeff_data,b35,number,,Damping coefficient in heave-pitch coupling.,,,0,0,damping_coeff_data.b35,OPTIONAL,
 damping_coeff_data,b44,number,,Damping coefficient in roll.,,,0,0,damping_coeff_data.b44,OPTIONAL,
+damping_coeff_data,b35,number,,Damping coefficient in heave-pitch coupling.,,,0,0,damping_coeff_data.b35,OPTIONAL,
+damping_coeff_data,b33,number,,Damping coefficient in heave.,,,0,0,damping_coeff_data.b33,OPTIONAL,
 damping_coeff_data,b46,number,,Damping coefficient in roll-yaw coupling.,,,0,0,damping_coeff_data.b46,OPTIONAL,
 damping_coeff_data,b55,number,,Damping coefficient in pitch.,,,0,0,damping_coeff_data.b55,OPTIONAL,
+damping_coeff_data,b22,number,,Damping coefficient in sway.,,,0,0,damping_coeff_data.b22,OPTIONAL,
+damping_coeff_data,b15,number,,Damping coefficient in surge-roll coupling.,,,0,0,damping_coeff_data.b15,OPTIONAL,
+damping_coeff_data,b11,number,,Damping coefficient in surge.,,,0,0,damping_coeff_data.b11,OPTIONAL,
+damping_coeff_data,b24,number,,Damping coefficient in sway-roll coupling.,,,0,0,damping_coeff_data.b24,OPTIONAL,
 damping_coeff_data,b66,number,,Damping coefficient in yaw.,,,0,0,damping_coeff_data.b66,OPTIONAL,
-design_particulars,lpp,number,m,Length between perpendiculars.,,,,150.0,design_particulars.lpp,REQUIRED,
 design_particulars,b,number,m,Breadth (moulded).,,,,25.2,design_particulars.b,REQUIRED,
+design_particulars,askeg,number,m^2,Area of skeg. Transverse area of the skeg.,,,,0,design_particulars.askeg,REQUIRED,
 design_particulars,ta,number,m,Draft aft (design).,,,,8.5,design_particulars.ta,REQUIRED,
-design_particulars,tf,number,m,Draft forward (design).,,,,8.5,design_particulars.tf,REQUIRED,
+design_particulars,loadcond,float,,,,,,0.0,design_particulars.loadcond,active,pending
+design_particulars,lpp,number,m,Length between perpendiculars.,,,,150.0,design_particulars.lpp,REQUIRED,
+design_particulars,abulb,float,,,,,,0.0,design_particulars.abulb,active,pending
+design_particulars,bra,float,,,,,,0.0,design_particulars.bra,active,pending
+design_particulars,cw,number,,Waterplane area coefficient (at design draft).,,,,0.81,design_particulars.cw,REQUIRED,
+design_particulars,br,float,,,,,,0.0,design_particulars.br,active,pending
 design_particulars,disp,number,tonnes,Displacement (design). Use consistent units (tonnes).,Must be consistent with volume.,,,15000,design_particulars.disp,REQUIRED,
+design_particulars,sr,float,,,,,,0.0,design_particulars.sr,active,pending
+design_particulars,hskeg, number, m, Height of skeg. Depth (Z-coordinate) of the lowest point of the skeg, measured from the baseline.,SEAMAN uses a coordinate system where Z is positive downwards.,,0,design_particulars.hskeg, REQUIRED,
+design_particulars,slag,float,,,,,,1.0,design_particulars.slag,active,pending
+design_particulars,lblk,float,,,,,,0.0,design_particulars.lblk,active,pending
+design_particulars,tf,number,m,Draft forward (design).,,,,8.5,design_particulars.tf,REQUIRED,
+design_particulars,rskeg,float,,,,,,0.0,design_particulars.rskeg,active,pending
+design_particulars,tskeg,float,,,,,,0.0,design_particulars.tskeg,active,pending
+design_particulars,kxxm,float,,,,,,11.75,design_particulars.kxxm,active,pending
+design_particulars,a0,float,,,,,,0.98,design_particulars.a0,active,pending
+design_particulars,cb,number,,Block coefficient (at design draft).,,,,0.72,design_particulars.cb,REQUIRED,
 design_particulars,lcg,number,m,Longitudinal centre of gravity (from Lpp/2).,Positive forward of amidships.,,,-0.9,design_particulars.lcg,REQUIRED,
+design_particulars,ud,float,,,,,,8.23,design_particulars.ud,active,pending
+design_particulars,tcg,float,,,,,,0.0,design_particulars.tcg,active,pending
+design_particulars,bblk,float,,,,,,0.0,design_particulars.bblk,active,pending
+design_particulars,cm,number,,Midship section coefficient (at design draft).,,,,0.98,design_particulars.cm,REQUIRED,
+design_particulars,kzzm,float,,,,,,47.75,design_particulars.kzzm,active,pending
+design_particulars,kyym,float,,,,,,47.75,design_particulars.kyym,active,pending
+design_particulars,gm,float,,,,,,3.76,design_particulars.gm,active,pending
+design_particulars,bk,float,,,,,,0.0,design_particulars.bk,active,pending
 design_particulars,vbcg,number,m,Vertical centre of buoyancy (from baseline).,,,,4.8,design_particulars.vbcg,REQUIRED,
 design_particulars,lcb,number,m,Longitudinal centre of buoyancy (from Lpp/2).,Positive forward of amidships.,,,-0.1,design_particulars.lcb,REQUIRED,
-design_particulars,cb,number,,Block coefficient (at design draft).,,,,0.72,design_particulars.cb,REQUIRED,
-design_particulars,cm,number,,Midship section coefficient (at design draft).,,,,0.98,design_particulars.cm,REQUIRED,
-design_particulars,cw,number,,Waterplane area coefficient (at design draft).,,,,0.81,design_particulars.cw,REQUIRED,
-design_particulars,askeg,number,m^2,Area of skeg. Transverse area of the skeg.,,,,0,design_particulars.askeg,REQUIRED,
-design_particulars,hskeg, number, m, Height of skeg. Depth (Z-coordinate) of the lowest point of the skeg, measured from the baseline.,SEAMAN uses a coordinate system where Z is positive downwards.,,0,design_particulars.hskeg, REQUIRED,
+design_particulars,kg,float,,,,,,9.29,design_particulars.kg,active,pending
 diesel_engine_data,id,string,,,Unique ID of the diesel engine set.,,,diesel_1,diesel_engine_data.id,REQUIRED,
 diesel_engine_data,igov,number,,Governor type, for this diesel engine set.,,,1,diesel_engine_data.igov,REQUIRED,
 diesel_engine_data,ipower,number,,Index of the power data for this engine set.,,,1,1,diesel_engine_data.ipower,REQUIRED,
 diesel_engine_data,iset,number,,Engine set selection,,,1,1,diesel_engine_data.iset,REQUIRED,
 diesel_engine_data,itau,number,,Flag for time constant calculation,,,1,1,diesel_engine_data.itau,REQUIRED,
-diesel_engine_data,max_power,number,kW,Maximum continuous rating (MCR) of the engine.,,,10000,10000,diesel_engine_data.max_power,REQUIRED,
 diesel_engine_data,max_torque,number,kNm,Maximum torque,,,300,300,diesel_engine_data.max_torque,REQUIRED,
-diesel_engine_data,min_power,number,kW,Minimum power,,,500,500,diesel_engine_data.min_power,REQUIRED,
+diesel_engine_data,max_power,number,kW,Maximum continuous rating (MCR) of the engine.,,,10000,10000,diesel_engine_data.max_power,REQUIRED,
 diesel_engine_data,min_torque,number,kNm,Minimum torque,,,10,10,diesel_engine_data.min_torque,REQUIRED,
-diesel_engine_data,ngov,number,,Governor parameters,Array size varies significantly. Context Dependent.,,,[...],diesel_engine_data.ngov,REQUIRED,
-diesel_engine_data,npower,number,,Power data,Array size varies significantly. Context Dependent.,,,[...],diesel_engine_data.npower,REQUIRED,
 diesel_engine_data,ntau,number,,Time constant data,Array size varies significantly. Context Dependent.,,,[...],diesel_engine_data.ntau,REQUIRED,
+diesel_engine_data,min_power,number,kW,Minimum power,,,500,500,diesel_engine_data.min_power,REQUIRED,
 diesel_engine_data,t_max_dn,number,kNm/s,Maximum torque derivative (decreasing).,,,100,100,diesel_engine_data.t_max_dn,REQUIRED,
+diesel_engine_data,npower,number,,Power data,Array size varies significantly. Context Dependent.,,,[...],diesel_engine_data.npower,REQUIRED,
 diesel_engine_data,t_max_up,number,kNm/s,Maximum torque derivative (increasing).,,,150,150,diesel_engine_data.t_max_up,REQUIRED,
+diesel_engine_data,ngov,number,,Governor parameters,Array size varies significantly. Context Dependent.,,,[...],diesel_engine_data.ngov,REQUIRED,
+dolph_data,nydol,float,,,,,,5000000.0,dolph_data.nydol,active,pending
+dolph_data,mydol,float,,,,,,0.1,dolph_data.mydol,active,pending
+dolph_data,kdol,float,,,,,,11000000.0,dolph_data.kdol,active,pending
 echo_sounder_data,xecho,number,m,Longitudinal position of the echo sounder (from Lpp/2).,, ,75,75,echo_sounder_data.xecho,REQUIRED,
 echo_sounder_data,yecho,number,m,Transverse position of the echo sounder.,,,0,0,echo_sounder_data.yecho,REQUIRED,
 echo_sounder_data,zecho,number,m,Vertical position of the echo sounder (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-2,echo_sounder_data.zecho,REQUIRED,
-fin_data,afin,number,m^2,Area of one fin,,,,0,fin_data.afin,OPTIONAL,
 fin_data,fin_span,number,m,Span of Fin.,,,,0,fin_data.fin_span,OPTIONAL,
-fin_data,nfin,number,,Number of fins.,,,,0,fin_data.nfin,OPTIONAL,
-fin_data,xfin,number,m,Longitudinal position of fin (from Lpp/2).,,,,0,fin_data.xfin,OPTIONAL,
-fin_data,yfin,number,m,Transverse position of fin (from centerline).,,,,0,fin_data.yfin,OPTIONAL,
 fin_data,zfin,number,m,Vertical position of fin (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,0,fin_data.zfin,OPTIONAL,
+fin_data,afin,number,m^2,Area of one fin,,,,0,fin_data.afin,OPTIONAL,
+fin_data,xfin,number,m,Longitudinal position of fin (from Lpp/2).,,,,0,fin_data.xfin,OPTIONAL,
+fin_data,nfin,number,,Number of fins.,,,,0,fin_data.nfin,OPTIONAL,
+fin_data,yfin,number,m,Transverse position of fin (from centerline).,,,,0,fin_data.yfin,OPTIONAL,
 fin_data,fin_chord,number,m,Chord length of fin.,,,,0, fin_data.fin_chord,OPTIONAL,
-fix_prop_data,,array,,,,,,,,,
+fix_prop_data,hub_ratio,number,,Hub diameter ratio.,,,0.15,0.15,fix_prop_data.hub_ratio,REQUIRED,
 fix_prop_data,nprop,number,,Number of propellers.,,,,1,fix_prop_data.nprop,REQUIRED,
-fix_prop_data,diam,number,m,Propeller diameter.,,,,7.0,fix_prop_data.diam,REQUIRED,
-fix_prop_data,xp,number,m,Longitudinal position of propeller (from Lpp/2).,+ve forward,,,5.5,fix_prop_data.xp,REQUIRED,
-fix_prop_data,yp,number,m,Transverse position of propeller (from centerline).,+ve port,,,0.0,fix_prop_data.yp,REQUIRED,
-fix_prop_data,zp,number,m,Vertical position of propeller (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-9.0,fix_prop_data.zp,REQUIRED,
-fix_prop_data,xa,number,m,Longitudinal position of propeller disk (from Lpp/2).,,,,5.5,fix_prop_data.xa,REQUIRED,
-fix_prop_data,nblades,number,,Number of propeller blades.,,,,4,fix_prop_data.nblades,REQUIRED,
+fix_prop_data,,array,,,,,,,,,
+fix_prop_data,rdiam,number,m,Rudder diameter.,,,,7,fix_prop_data.rdiam,REQUIRED,
+fix_prop_data,skew,number,rad,Propeller skew angle.,,,,0.2,fix_prop_data.skew,REQUIRED,
 fix_prop_data,blade_area_ratio,number,,Expanded blade area ratio.,,,,0.65,fix_prop_data.blade_area_ratio,REQUIRED,
-fix_prop_data,pitch,number,m,Propeller pitch (at 0.7R).,,,,7.0,fix_prop_data.pitch,REQUIRED,
 fix_prop_data,protfix,number,,"protfix: 1 -> Right-handed (RH) Propeller
 protfix: -1 -> Left-handed (LH) Propeller
 protfix: 0 -> indicates that the propeller is turning, but has no influence.",,"protfix: 1 -> Right-handed (RH) Propeller
 protfix: -1 -> Left-handed (LH) Propeller
 protfix: 0 -> indicates that the propeller is turning, but has no influence.",,1,fix_prop_data.handed,REQUIRED,
-fix_prop_data,hub_ratio,number,,Hub diameter ratio.,,,0.15,0.15,fix_prop_data.hub_ratio,REQUIRED,
+fix_prop_data,nblades,number,,Number of propeller blades.,,,,4,fix_prop_data.nblades,REQUIRED,
 fix_prop_data,rake,number,rad,Propeller rake angle.,,,,0.1,fix_prop_data.rake,REQUIRED,
-fix_prop_data,skew,number,rad,Propeller skew angle.,,,,0.2,fix_prop_data.skew,REQUIRED,
-fix_prop_data,rdiam,number,m,Rudder diameter.,,,,7,fix_prop_data.rdiam,REQUIRED,
-flume_data,aflume,number,m^2,Area of the flume tank.,,,,0,flume_data.aflume,OPTIONAL,
-flume_data,bflume,number,m,Width of the flume tank.,,,,0,flume_data.bflume,OPTIONAL,
-flume_data,cflume,number,,Flume tank coefficient.,,,,0.8,flume_data.cflume,OPTIONAL,
-flume_data,dflume,number,m,Depth of flume tank.,,,,0,flume_data.dflume,OPTIONAL,
+fix_prop_data,pitch,number,m,Propeller pitch (at 0.7R).,,,,7.0,fix_prop_data.pitch,REQUIRED,
+fix_prop_data,xa,number,m,Longitudinal position of propeller disk (from Lpp/2).,,,,5.5,fix_prop_data.xa,REQUIRED,
+fix_prop_data,zp,number,m,Vertical position of propeller (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-9.0,fix_prop_data.zp,REQUIRED,
+fix_prop_data,yp,number,m,Transverse position of propeller (from centerline).,+ve port,,,0.0,fix_prop_data.yp,REQUIRED,
+fix_prop_data,xp,number,m,Longitudinal position of propeller (from Lpp/2).,+ve forward,,,5.5,fix_prop_data.xp,REQUIRED,
+fix_prop_data,diam,number,m,Propeller diameter.,,,,7.0,fix_prop_data.diam,REQUIRED,
 flume_data,hflume,number,m,Height of the fluid in the flume tank.,,,,5.0,flume_data.hflume,OPTIONAL,
-flume_data,lflume,number,m,Length of the flume tank.,,,,60.0,flume_data.lflume,OPTIONAL,
-flume_data,vfr,number,,Ratio  Vflume/Vs.,,,,0,flume_data.vfr,OPTIONAL,
 flume_data,zetflu,number,m,Vertical position of the flume tank (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,-7.0,flume_data.zetflu,OPTIONAL,
-hull_coeff_data,chwv,number,,Hull wave-making coefficient.,,,,0.85,hull_coeff_data.chwv,REQUIRED,
+flume_data,vfr,number,,Ratio  Vflume/Vs.,,,,0,flume_data.vfr,OPTIONAL,
+flume_data,lflume,number,m,Length of the flume tank.,,,,60.0,flume_data.lflume,OPTIONAL,
+flume_data,dens,float,,,,,,0.0,flume_data.dens,active,pending
+flume_data,dflume,number,m,Depth of flume tank.,,,,0,flume_data.dflume,OPTIONAL,
+flume_data,bflume,number,m,Width of the flume tank.,,,,0,flume_data.bflume,OPTIONAL,
+flume_data,aflume,number,m^2,Area of the flume tank.,,,,0,flume_data.aflume,OPTIONAL,
+flume_data,cflume,number,,Flume tank coefficient.,,,,0.8,flume_data.cflume,OPTIONAL,
 hull_coeff_data,ckv,number,,Wave resistance coefficient.,,,,1.1,hull_coeff_data.ckv,REQUIRED,
 hull_coeff_data,csigma,number,,Viscous resistance coefficient.,,,,0.92,hull_coeff_data.csigma,REQUIRED,
 hull_coeff_data,cx,number,,Longitudinal prismatic coefficient.,,,,0.73,hull_coeff_data.cx,REQUIRED,
 hull_coeff_data,cvr,number,,Correlation allowance coefficient.,,,,0.0004,hull_coeff_data.cvr,REQUIRED,
-hull_coeff_data_astern_corr,ckapp,number,,Correction factor for appendage resistance.,,,,1,hull_coeff_data_astern_corr.ckapp,REQUIRED,
-hull_coeff_data_astern_corr,ckvh,number,,Correction factor for astern wave resistance coefficient.,,,,1,hull_coeff_data_astern_corr.ckvh,REQUIRED,
-hull_coeff_data_astern_corr,csigmah,number,,Correction factor for astern viscous resistance coefficient.,,,,1,hull_coeff_data_astern_corr.csigmah,REQUIRED,
+hull_coeff_data,chwv,number,,Hull wave-making coefficient.,,,,0.85,hull_coeff_data.chwv,REQUIRED,
 hull_coeff_data_astern_corr,cvh,number,,Correction factor for astern wave resistance.,,,,1,hull_coeff_data_astern_corr.cvh,REQUIRED,
+hull_coeff_data_astern_corr,csigmah,number,,Correction factor for astern viscous resistance coefficient.,,,,1,hull_coeff_data_astern_corr.csigmah,REQUIRED,
 hull_coeff_data_astern_corr,cxhwv,number,,Correction factor for astern hull wave-making coefficient.,,,,1.0,hull_coeff_data_astern_corr.cxhwv,REQUIRED,
+hull_coeff_data_astern_corr,ckvh,number,,Correction factor for astern wave resistance coefficient.,,,,1,hull_coeff_data_astern_corr.ckvh,REQUIRED,
+hull_coeff_data_astern_corr,ckapp,number,,Correction factor for appendage resistance.,,,,1,hull_coeff_data_astern_corr.ckapp,REQUIRED,
+interceptor_data,cicte,float,,,,,,0.0,interceptor_data.cicte,active,pending
+interceptor_data,yyic,float,,,,,,0.0,interceptor_data.yyic,active,pending
+interceptor_data,hicr,float,,,,,,0.0,interceptor_data.hicr,active,pending
+interceptor_data,hicmax,float,,,,,,0.0,interceptor_data.hicmax,active,pending
+interceptor_data,gic,float,,,,,,0.0,interceptor_data.gic,active,pending
+interceptor_data,cicfi,float,,,,,,0.0,interceptor_data.cicfi,active,pending
+interceptor_data,zzic,float,,,,,,0.0,interceptor_data.zzic,active,pending
+interceptor_data,cicq,float,,,,,,0.0,interceptor_data.cicq,active,pending
+interceptor_data,cicpsi,float,,,,,,0.0,interceptor_data.cicpsi,active,pending
+interceptor_data,cicp,float,,,,,,0.0,interceptor_data.cicp,active,pending
+interceptor_data,cici,float,,,,,,0.0,interceptor_data.cici,active,pending
+interceptor_data,cicr,float,,,,,,0.0,interceptor_data.cicr,active,pending
+interceptor_data,lic,float,,,,,,0.0,interceptor_data.lic,active,pending
+isherwood_data,c,str,,,,,,94,isherwood_data.c,active,pending
+isherwood_data,ass,str,,,,,,2675,isherwood_data.ass,active,pending
+isherwood_data,sw,str,,,,,,271,isherwood_data.sw,active,pending
+isherwood_data,m,str,,,,,,1,isherwood_data.m,active,pending
+lin_hull_coeff_data,nuv,float,,,,,,-0.69,lin_hull_coeff_data.nuv,active,pending
+lin_hull_coeff_data,yuv,float,,,,,,-1.18797,lin_hull_coeff_data.yuv,active,pending
+lin_hull_coeff_data,yuur,float,,,,,,0.25947,lin_hull_coeff_data.yuur,active,pending
+lin_hull_coeff_data,slev,float,,,,,,0.0,lin_hull_coeff_data.slev,active,pending
+lin_hull_coeff_data,yuuv,float,,,,,,-1.53736,lin_hull_coeff_data.yuuv,active,pending
+lin_hull_coeff_data,kp,float,,,,,,-0.00098,lin_hull_coeff_data.kp,active,pending
+lin_hull_coeff_data,kuv,float,,,,,,0.16887,lin_hull_coeff_data.kuv,active,pending
+lin_hull_coeff_data,nur,float,,,,,,-0.080033,lin_hull_coeff_data.nur,active,pending
+lin_hull_coeff_data,yur,float,,,,,,0.19959,lin_hull_coeff_data.yur,active,pending
+lin_hull_coeff_data,kuur,float,,,,,,-0.00704,lin_hull_coeff_data.kuur,active,pending
+lin_hull_coeff_data,kvav,float,,,,,,0.0,lin_hull_coeff_data.kvav,active,pending
+lin_hull_coeff_data,kpap,float,,,,,,0.0,lin_hull_coeff_data.kpap,active,pending
+lin_hull_coeff_data,nuuv,float,,,,,,-0.078,lin_hull_coeff_data.nuuv,active,pending
+lin_hull_coeff_data,nuur,float,,,,,,-0.55023,lin_hull_coeff_data.nuur,active,pending
+lin_hull_coeff_data,nuuf,float,,,,,,-0.1,lin_hull_coeff_data.nuuf,active,pending
+lin_hull_coeff_data,kur,float,,,,,,-0.00542,lin_hull_coeff_data.kur,active,pending
+lin_hull_coeff_data,kuuv,float,,,,,,0.0,lin_hull_coeff_data.kuuv,active,pending
+lin_hull_coeff_data,kup,float,,,,,,-0.00583,lin_hull_coeff_data.kup,active,pending
+lin_hull_coeff_data,krar,float,,,,,,0.0,lin_hull_coeff_data.krar,active,pending
+load_regulator,cpdp,float,,,,,,0.2,load_regulator.cpdp,active,pending
+load_regulator,cpdd,float,,,,,,0.3,load_regulator.cpdd,active,pending
+load_regulator,cpdi,float,,,,,,0.03,load_regulator.cpdi,active,pending
+main_data,loa,number,m,Ship's overall length.,Reasonable range based on ship type. Should be greater than or equal to l.,>0,,160.0,main_data.loa,REQUIRED,
 main_data,shiptype,number,,Code representing the type of ship.,Set to 2 for displacement vessels. Other values may be used for specific ship types.,,2,2,main_data.shiptype,REQUIRED,
 main_data,ndof,number,,Number of degrees of freedom in the simulation.,"Represents the degrees of freedom (surge, sway, heave, roll, pitch, yaw).","Valid values are typically 3, 4, or 6.",4,4,main_data.ndof,REQUIRED,
 main_data,l,number,m,Ship's length between perpendiculars.,Reasonable range based on ship type. Should be less than or equal to loa.,>0,,150.0,main_data.l,REQUIRED,
-main_data,beam,number,m,Ship's beam (width).,Reasonable range based on ship type.,>0,,25.2,main_data.beam,REQUIRED,
-main_data,loa,number,m,Ship's overall length.,Reasonable range based on ship type. Should be greater than or equal to l.,>0,,160.0,main_data.loa,REQUIRED,
 main_data,steerarr,number,,Code representing the steering arrangement.,Set to 1 for conventional rudder. Other values may be used for different steering arrangements.,,1,1,main_data.steerarr,REQUIRED,
 main_data,thrustrarr,number,,Code representing the thruster arrangement.,"1: Fixed Pitch Propeller (FPP)
 2: Controllable Pitch Propeller (CPP)
@@ -179,296 +255,226 @@ main_data,thrustrarr,number,,Code representing the thruster arrangement.,"1: Fix
 4: Water jet
 5: Azimuth
 6: Voith","Integer; 1, 2, 3, 4, 5 or 6",1,1,main_data.thrustrarr,REQUIRED,
-max_rates,ndm,number,rpm/s,Maximum shaft speed rate.,,,,0,max_rates.dndmax,REQUIRED,
-max_rates,pdm,number,pitch/diameter ratio per second ([-]/s),Maximum pitch rate, CPP only.,,,0,max_rates.dpdmax,REQUIRED,
-name,ship_name,string,,,Name of the ship.,,,My Ship,name.ship_name,REQUIRED,
-principal_particulars,tfp,number,m,Draft at FP (design). Should be consistent with t and tap.,,,,8.5,principal_particulars.tfp,REQUIRED,
-principal_particulars,tap,number,m,Draft at AP (design). Should be consistent with t and tfp.,,,,8.5,principal_particulars.tap,REQUIRED,
-principal_particulars,t,number,m,Mean draft (design).  Should be consistent with ta and tf.,,,,8.5,principal_particulars.t,REQUIRED,
-principal_particulars,lcf,number,m,Longitudinal centre of flotation (from Lpp/2).,Positive forward of amidships.,,,74.0,principal_particulars.lcf,REQUIRED,
-principal_particulars,awp,number,m^2,Waterplane area (design).,,,,1850,principal_particulars.awp,REQUIRED,
-principal_particulars,TA,number,m,Draft at aft perpendicular.,,,,8.5,principal_particulars.TA,REQUIRED,
-principal_particulars,TF,number,m,Draft at forward perpendicular.,,,,8.5,principal_particulars.TF,REQUIRED,
-principal_particulars,volume,number,m^3,Displaced volume (design). Use consistent units (m^3).,Must be consistent with disp.,,,14700,principal_particulars.volume,REQUIRED,
-propeller_coeff_data,,array,,,,,,,,,
-propeller_coeff_data,ckthead,number,,Coefficient for Kt ahead correction.,,,,1.0,propeller_coeff_data.ckthead,REQUIRED,
-propeller_coeff_data,cktstern,number,,Coefficient for Kt astern correction.,,,,1.0,propeller_coeff_data.cktstern,REQUIRED,
-propeller_coeff_data,ckqhead,number,,Coefficient for Kq ahead correction.,,,,1.0,propeller_coeff_data.ckqhead,REQUIRED,
-propeller_coeff_data,ckqstern,number,,Coefficient for Kq astern correction.,,,,1.0,propeller_coeff_data.ckqstern,REQUIRED,
-propeller_coeff_data,cstn,number,Add dimensionless units ([-]),Coefficient for stern shape correction.,,,,1.0,propeller_coeff_data.cstn,REQUIRED,
-propeller_coeff_data,ktyh,number,,Coefficient for transverse force in y direction, hull interaction.,,,0,propeller_coeff_data.ktyh,REQUIRED,
-propeller_coeff_data,ktys,number,,Coefficient for transverse force in y direction.,,,,0,propeller_coeff_data.ktys,REQUIRED,
-prop_char,j,number,[-],Advance coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq, and kt.,"[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]",prop_char.j,CONDITIONAL,
-prop_char,kt,number,[-],Thrust coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq,,"[0.2, 0.18, 0.16, 0.14, 0.12, 0.1, 0.08, 0.06, 0.04]",prop_char.kt,CONDITIONAL,
-prop_char,kq,number,[-],Torque coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq,,"[0.02, 0.018, 0.016, 0.014, 0.012, 0.01, 0.008, 0.006, 0.004]",prop_char.kq,CONDITIONAL,
-res_data,reskn,number,m/s,Array of ship speeds for resistance data.,,, 1.03," 2.06]""",res_data.vres,OPTIONAL,
-res_data,res,number,N,Array of resistance values.,corresponding to the speeds in vres,,,"[10000, 52000, 108000]",res_data.res,OPTIONAL,
-restoring_coeff_data,c11,number,,Restoring coefficient in surge.,,,,0,restoring_coeff_data.c11,OPTIONAL,
-restoring_coeff_data,c15,number,,Restoring coefficient in surge-roll coupling.,,,,0,restoring_coeff_data.c15,OPTIONAL,
-restoring_coeff_data,c22,number,,Restoring coefficient in sway.,,,,0,restoring_coeff_data.c22,OPTIONAL,
-restoring_coeff_data,c24,number,,Restoring coefficient in sway-roll coupling.,,,,0,restoring_coeff_data.c24,OPTIONAL,
-restoring_coeff_data,c26,number,,Restoring coefficient in sway-yaw coupling.,,,,0,restoring_coeff_data.c26,OPTIONAL,
-restoring_coeff_data,c33,number,,Restoring coefficient in heave.,,,,0,restoring_coeff_data.c33,OPTIONAL,
-restoring_coeff_data,c35,number,,Restoring coefficient in heave-pitch coupling.,,,,0,restoring_coeff_data.c35,OPTIONAL,
-restoring_coeff_data,c44,number,,Restoring coefficient in roll.,,,,0,restoring_coeff_data.c44,OPTIONAL,
-restoring_coeff_data,c46,number,,Restoring coefficient in roll-yaw coupling.,,,,0,restoring_coeff_data.c46,OPTIONAL,
-restoring_coeff_data,c55,number,,Restoring coefficient in pitch.,,,,0,restoring_coeff_data.c55,OPTIONAL,
-restoring_coeff_data,c66,number,,Restoring coefficient in yaw.,,,,0,restoring_coeff_data.c66,OPTIONAL,
-rudder_data,irudprop,number,,Propeller associated with each rudder. Uses propeller_id from fix_prop_data or cp_prop_data.,Reference propeller by its unique propeller_id, not array index. MUST be a valid propeller_id.,,"[1, 2]",rudder_data.irudprop,REQUIRED,
-rudder_data,kutzner,number,,Kutzner coefficient for each rudder.,,,,1,rudder_data.kutzner,REQUIRED,
-rudder_data,nrudder,number,,Number of rudders.,,,,2,rudder_data.nrudder,REQUIRED,
-rudder_data,skeg,number,,Skeg presence indicator for each rudder (0=no skeg, 1=skeg).,,,"[0, 0]",rudder_data.skeg,REQUIRED,
-rudder_data,span,number,m,Span of each rudder.,,,,"[5.0, 5.0]",rudder_data.span,REQUIRED,
-rudder_data,sweep,number,rad,Sweep angle of each rudder.,,,,"[0.1, 0.1]",rudder_data.sweep,REQUIRED,
-rudder_data,taper,number,,Taper ratio of each rudder.,,,,"[0.8, 0.8]",rudder_data.taper,REQUIRED,
-rudder_data,xr,number,m,Longitudinal position of each rudder stock (from Lpp/2).,,,,"[5.0, 5.0]",rudder_data.xr,REQUIRED,
-rudder_data,zr,number,m,Vertical position of each rudder stock (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,"[-10.0, -10.0]",rudder_data.zr,REQUIRED,
-rudder_limitations,max_rudder_rate,number,rad/s,Maximum rudder rate.,,,,0.12,rudder_limitations.max_rudder_rate,REQUIRED,
-rudder_limitations,rudmax,number,rad,Maximum rudder angle.,,,,0.61,rudder_limitations.rudmax,REQUIRED,
-rudder_limitations,rudmin,number,rad,Minimum rudder angle.,,,,-0.61,rudder_limitations.rudmin,REQUIRED,
-rudder_particulars,ar,number,m^2,Area of one of the rudders,,,,15,rudder_particulars.ar,REQUIRED,
-rudder_particulars,cr,number,m,Rudder chord,,,,3,rudder_particulars.cr,REQUIRED,
-rudder_particulars,id,string,,,Unique ID of this rudder setting,,,rudder_set_1,rudder_particulars.id,REQUIRED,
-rudder_particulars,kutzner,number,,Kutzner coefficient,,,,1,rudder_particulars.kutzner,REQUIRED,
-rudder_particulars,n,number,,Number of rudders in this set.,,,,2,rudder_particulars.n,REQUIRED,
-rudder_particulars,protcp,number,,Propeller type, for CPP set to 0.,,,0,rudder_particulars.protcp,REQUIRED,
-rudder_particulars,protfix,number,,Propeller type, for FPP set to 0.,,,0,rudder_particulars.protfix,REQUIRED,
-rudder_particulars,skeg,number,,Skeg present flag,,,,0,rudder_particulars.skeg,REQUIRED,
-rudder_particulars,span,number,m,Rudder Span,,,,5,rudder_particulars.span,REQUIRED,
-rudder_particulars,sweep,number,rad,Sweep Angle.,,,,0.1,rudder_particulars.sweep,REQUIRED,
-rudder_particulars,taper,number,,Taper ratio,,,,0.8,rudder_particulars.taper,REQUIRED,
-rudder_particulars,xr,number,m,Longitudinal position of the rudder from Lpp/2.,,,,5,rudder_particulars.xr,REQUIRED,
-rudder_particulars,zr,number,m,Height of the rudder stock, from baseline.,SEAMAN Z-axis is positive *downwards*.,,-10,rudder_particulars.zr,REQUIRED,
-rudder_particulars,tcrudder, number, s, Rudder Time Constant,,,,5,rudder_particulars.tcrudder,REQUIRED,
-section_coord_data,x,number,m,Longitudinal position of each section (from Lpp/2).,"Positive forward of AP. If omitted, sections are assumed to be equally spaced based on nsec.",Must be in ascending or descending order,,"[0.0, 7.5, 15.0, ..., 150.5]",section_coord_data.x,OPTIONAL,
-section_coord_data,y,array of number,m,Half-breadth of each section at the design waterline.,"If omitted, sections are assumed to be equally spaced based on nsec.",,,"[0.0, 2.5, 5.0, ..., 12.6]",section_coord_data.y,CONDITIONAL,
-section_coord_data,z,array of number,m,Vertical position of the design waterline relative to the baseline. SEAMAN Z-axis is positive downwards. This value should generally be negative or zero,"SEAMAN Z-axis is positive downwards. This value should generally be negative or zero. If omitted, sections are assumed to be equally spaced based on nsec.",,,,section_coord_data.z,OPTIONAL,
-section_data,asec,array of number,m^2,Transverse sectional area below the design waterline for each section.,Number of elements MUST equal nsec. The order MUST correspond to the section positions.,>= 0,,"[0.0, 15.0, 30.0, ..., 180.0]",section_data.asec,OPTIONAL,
-section_data,nsec,number,,Number of sections used to define the underwater hull form.,"If section_coord_data is provided, nsec MUST match the number of sections defined there. If section_coord_data is absent, nsec should be 11 or 21.","If section_coord_data is present, MUST equal the length of section_coord_data arrays. Otherwise, 11 or 21.",,21,section_data.nsec,OPTIONAL,
-simulation_parameters,dt,number,s,Simulation time step.,,,,0.01,simulation_parameters.dt,REQUIRED,
-simulation_parameters,tmax,number,s,Maximum simulation time.,,,,100,simulation_parameters.tmax,REQUIRED,
-thruster_data,ath,number,m^2,Area of thruster tunnel opening.,,,,0,thruster_data.ath,OPTIONAL,
-thruster_data,bth,number,,Thruster coefficient.,,,,0,thruster_data.bth,OPTIONAL,
-thruster_data,cth,number,,Resistance coefficient of tunnel.,,,,0,thruster_data.cth,OPTIONAL,
-thruster_data,dth,number,m,Diameter of thruster.,,,,0,thruster_data.dth,OPTIONAL,
-thruster_data,hth,number,m,Distance from tunnel opening to the center of the thruster.,,,,0,thruster_data.hth,OPTIONAL,
-thruster_data,ith,number,,Type of thruster. (Tunnel = 0 ; Azimuth = 1),,,,0,thruster_data.ith,OPTIONAL,
-thruster_data,kth,number,,K value, if 0, then use open water curve for the thruster.,,0,thruster_data.kth,OPTIONAL,
-thruster_data,nth,number,,Number of thrusters.,,,,0,thruster_data.nth,OPTIONAL,
-thruster_data,powth,number,kW,Power of thruster.,,,,0,thruster_data.powth,OPTIONAL,
-thruster_data,xth,number,m,Longitudinal position of thruster (from Lpp/2).,,,,0,thruster_data.xth,OPTIONAL,
-thruster_data,yth,number,m,Transverse position of thruster (from centerline).,,,,0,thruster_data.yth,OPTIONAL,
-thruster_data,zth,number,m,Vertical position of thruster (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,0,thruster_data.zth,OPTIONAL,
-tug_data,htug,number,kN,Maximum bollard pull of tug.,,,,0,tug_data.htug,REQUIRED,
-tug_data,ltug,number,m,Length of tug line.,,,,0,tug_data.ltug,REQUIRED,
-tug_data,ntug,number,,Number of tugs.,,,,0,tug_data.ntug,REQUIRED,
-tug_data,xtug,number,m,Longitudinal position of tug connection point (from Lpp/2).,,,,0,tug_data.xtug,REQUIRED,
-tug_data,ytug,number,m,Transverse position of tug connection point (from centerline).,,,,0,tug_data.ytug,REQUIRED,
-tug_data,ztug,number,m,Vertical position of tug connection point (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,0,tug_data.ztug,REQUIRED,
-wave_coeff_data,cfal,,,Wave coefficient (alpha).,,,,,,,
-wind_coeff,cx,array of number,-,Longitudinal wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[-0.8, -0.7, ..., 0.8]",wind_coeff.cx,CONDITIONAL,
-wind_coeff,cy,array of number,-,Transverse wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[0.0, 0.2, ..., 0.0]",wind_coeff.cy,CONDITIONAL,
-wind_coeff,cn,array of number,-,Yawing moment wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[0.0, 0.1, ..., 0.0]",wind_coeff.cn,CONDITIONAL,
-wind_coeff,alfa,array of number,deg,"Relative wind angles corresponding to the coefficients in cx, cy, and cn.","Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table. Values must be increasing","Number of elements must match cx, cy, cn.",,"[0, 10, ..., 360]",wind_coeff.alfa,CONDITIONAL,
-wind_coeff,cm,array of number,,Wind heeling moment coefficient.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.","Number of elements must match cx, cy, cn.",,,wind_coeff.cm,CONDITIONAL,
-wind_data,al,number,m^2,Lateral projected area of the ship above the waterline (used for wind force calculations).,"Deprecated, use lat_wind_area instead.",>= 0,,6185,wind_data.al,DEPRECATED,
-wind_data,at,number,m^2,Transverse projected area of the ship above the waterline (used for wind force calculations).,"Deprecated, use trans_wind_area instead.",>= 0,,996,wind_data.at,DEPRECATED,
-wind_data,wcat,number,,Code representing the category for wind calculations.,3 when coefficients are from an external source (Vindkoefficienter_20211202.xlsx). Other values might indicate different calculation methods.,,3,3,wind_data.wcat,REQUIRED,
-wind_data,wind_heading,number,deg,Direction of wind (relative to North).,Only required if wcat is 1 or 2.,,,0,wind_data.wind_heading,CONDITIONAL,
-wind_data,wind_speed,number,m/s,Wind speed at reference height.,Only required if wcat is 1 or 2.,,,10,wind_data.wind_speed,CONDITIONAL,
-wind_data,ff,number,-,Form factor for wind resistance calculation.,,,1,1,wind_data.ff,REQUIRED,
-wind_data,h0,number,m,Reference height for wind speed.,,,10,10,wind_data.h0,REQUIRED,
-wind_data,is,number,-,"Wind spectrum type (1=constant, 2=Harris, 3=Ochi, 4=user-defined).",,,1,1,wind_data.is,REQUIRED,
-wind_data,iw,number,-,"Wind direction convention (1=from, 2=to).",,,1,1,wind_data.iw,REQUIRED,
-wind_data,x_wind_area,number,m,"Longitudinal center of wind area from Lpp/2., +ve forward.",,,0,0,wind_data.x_wind_area,OPTIONAL,
-wind_data,z_wind_area,number,m,"Vertical center of wind area, from baseline., SEAMAN Z-axis is positive downwards.",,,0,0,wind_data.z_wind_area,OPTIONAL,
-wind_data,lat_wind_area,number,m^2,Lateral projected area for wind.,This is the correct field to use.,>= 0,,6185,wind_data.lat_wind_area,REQUIRED,
-wind_data,trans_wind_area,number,m^2,Transverse projected area for wind.,This is the correct field to use.,>= 0,,996,wind_data.trans_wind_area,REQUIRED,
-shipcon_tug,linecon_points,-,array,-,Array of objects defining line connection points.,,,,shipcon_tug.linecon_points,OPTIONAL,
-shipcon_tug,linecon_points,x,number,m,X-coordinate of the connection point.,,,,-75,shipcon_tug.linecon_points.x,
-shipcon_tug,linecon_points,y,number,m,Y-coordinate of the connection point.,,,,14,shipcon_tug.linecon_points.y,
-shipcon_tug,linecon_points,z,number,m,Z-coordinate of the connection point.,,,,-16,shipcon_tug.linecon_points.z,
-shipcon_tug,linecon_points,d,number,,Diameter of the connection line.,,,,100000,shipcon_tug.linecon_points.d,
-shipcon_tug,linecon_points,k,number,,Spring constant of the connection line.,,,,2000000,shipcon_tug.linecon_points.k,
-shipcon_tug,linecon_points,b,number,,Damping coefficient of the connection line.,,,,60000,shipcon_tug.linecon_points.b,
-shipcon_tug,linecon_points,bl,number,,Breaking load of the connection line.,,,,700000,shipcon_tug.linecon_points.bl,
-shipcon_tug,linecon_points,name,string,,Name of the connection point.,,,,"""TC1""",shipcon_tug.linecon_points.name,
-wave_coeff_data,cfal,number,,Wave coefficient (alpha).,,,,1,.wave_coeff_data.cfal,OPTIONAL,
-wave_coeff_data,-,object,,,,,,,,OPTIONAL,
-resistance_data,r100d,number,,Resistance at 100% displacement.,,,,,,,
-resistance_data,r25d,number,,Resistance at 25% displacement.,,,,,,,
-resistance_data,r50d,number,,Resistance at 50% displacement.,,,,,,,
-resistance_data,r75d,number,,Resistance at 75% displacement.,,,,,,,
-resistance_data,rcors,number,,Resistance correction factor.,,,,,,,
-resistance_data,reskn,number[],,Resistance data speed,,,0,,resistance_data.r100d,OPTIONAL,
-resistance_data,res,number[],,Resistance data,,,0,,resistance_data.r25d,OPTIONAL,
-ship_interaction,int_type,number,,Interaction calculation type,,,1,,ship_interaction.int_type,OPTIONAL,
-ship_interaction,cymt,number,,Sway force coefficient,,,1,,ship_interaction.cymt,OPTIONAL,
-ship_interaction,cnmt,number,,Yaw moment coefficient,,,1,,ship_interaction.cnmt,OPTIONAL,
-tug_data,-,array,,Tug data.,"An array of objects, each representing a tug.",,,,tug_data,OPTIONAL,
-tug_data,xptug,number,m,Tug X-coordinate (relative to own ship's Lpp/2).,+ve forward,,,-75,tug_data[*].xptug,CONDITIONAL,
-tug_data,yptug,number,m,Tug Y-coordinate (relative to own ship's centerline).,+ve port,,,0,tug_data[*].yptug,CONDITIONAL,
-tug_data,zptug,number,m,Tug Z-coordinate (relative to own ship's baseline).,SEAMAN Z-axis is positive downwards.,,,-15,tug_data[*].zptug,CONDITIONAL,
-tug_data,taut,number,deg,Tug heading (relative to own ship).,,,,,tug_data[*].taut,CONDITIONAL,
-tug_data,tugh,number,deg,Tug heading (absolute).,,,,,tug_data[*].tugh,CONDITIONAL,
-tug_data,tugb,number,kN,Tug bollard pull.,,,,,tug_data[*].tugb,CONDITIONAL,
-tug_data,tugv,number,m/s,Tug speed.,,,,,tug_data[*].tugv,CONDITIONAL,
-tug_data,klt,number,,Tug line stiffness.,,,,,tug_data[*].klt,CONDITIONAL,
-tug_data,npt,number,,Tug propeller type.,,,,,tug_data[*].npt,CONDITIONAL,
-tug_data,linecon_points,array,,Array of objects defining line connection points.,Each object in this array defines a single line connection point for the current tug.,,,,tug_data[*].linecon_points,CONDITIONAL,
-tug_data,linecon_points.x,number,m,X-coordinate of the connection point.,,,,-75,tug_data[].linecon_points[].x,CONDITIONAL,
-tug_data,linecon_points.y,number,m,Y-coordinate of the connection point.,,,,14,tug_data[].linecon_points[].y,CONDITIONAL,
-tug_data,linecon_points.z,number,m,Z-coordinate of the connection point.,,,,-16,tug_data[].linecon_points[].z,CONDITIONAL,
-tug_data,linecon_points.d,number,,Diameter of the connection line.,,,,100000,tug_data[].linecon_points[].d,CONDITIONAL,
-tug_data,linecon_points.k,number,,Spring constant of the connection line.,,,,2000000,tug_data[].linecon_points[].k,CONDITIONAL,
-tug_data,linecon_points.b,number,,Damping coefficient of the connection line.,,,,60000,tug_data[].linecon_points[].b,CONDITIONAL,
-tug_data,linecon_points.bl,number,,Breaking load of the connection line.,,,,700000,tug_data[].linecon_points[].bl,CONDITIONAL,
-tug_data,linecon_points.name,string,,Name of the connection point.,,,,"""TC1""",tug_data[].linecon_points[].name,CONDITIONAL,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-added_mass_coeff_data,kpd,float,,,,,,-0.00159,added_mass_coeff_data.kpd,active,pending
-added_mass_coeff_data,nrd,float,,,,,,-0.01837,added_mass_coeff_data.nrd,active,pending
-added_mass_coeff_data,xud,float,,,,,,-0.06,added_mass_coeff_data.xud,active,pending
-added_mass_coeff_data,yvd,float,,,,,,-0.83843,added_mass_coeff_data.yvd,active,pending
-ap_data,pid_kp,float,,,,,,2.7,ap_data.pid_kp,active,pending
-ap_data,pid_ti,int,,,,,,105,ap_data.pid_ti,active,pending
-ap_data,pid_td,int,,,,,,32,ap_data.pid_td,active,pending
-ap_data,a_ship,float,,,,,,3.2,ap_data.a_ship,active,pending
-bollards,xkl,list,,,,,,"[-85, 85]",bollards.xkl,active,pending
-bollards,ykl,list,,,,,,"[0, 0]",bollards.ykl,active,pending
-bollards,zkl,list,,,,,,"[8, 8]",bollards.zkl,active,pending
-design_particulars,gm,float,,,,,,3.76,design_particulars.gm,active,pending
-design_particulars,kg,float,,,,,,9.29,design_particulars.kg,active,pending
-design_particulars,kxxm,float,,,,,,11.75,design_particulars.kxxm,active,pending
-design_particulars,kyym,float,,,,,,47.75,design_particulars.kyym,active,pending
-design_particulars,kzzm,float,,,,,,47.75,design_particulars.kzzm,active,pending
-design_particulars,tcg,float,,,,,,0.0,design_particulars.tcg,active,pending
-design_particulars,ud,float,,,,,,8.23,design_particulars.ud,active,pending
-lin_hull_coeff_data,kp,float,,,,,,-0.00098,lin_hull_coeff_data.kp,active,pending
-lin_hull_coeff_data,kpap,float,,,,,,0.0,lin_hull_coeff_data.kpap,active,pending
-lin_hull_coeff_data,krar,float,,,,,,0.0,lin_hull_coeff_data.krar,active,pending
-lin_hull_coeff_data,kup,float,,,,,,-0.00583,lin_hull_coeff_data.kup,active,pending
-lin_hull_coeff_data,kur,float,,,,,,-0.00542,lin_hull_coeff_data.kur,active,pending
-lin_hull_coeff_data,kuur,float,,,,,,-0.00704,lin_hull_coeff_data.kuur,active,pending
-lin_hull_coeff_data,kuuv,float,,,,,,0.0,lin_hull_coeff_data.kuuv,active,pending
-lin_hull_coeff_data,kuv,float,,,,,,0.16887,lin_hull_coeff_data.kuv,active,pending
-lin_hull_coeff_data,kvav,float,,,,,,0.0,lin_hull_coeff_data.kvav,active,pending
-lin_hull_coeff_data,nur,float,,,,,,-0.080033,lin_hull_coeff_data.nur,active,pending
-lin_hull_coeff_data,nuuf,float,,,,,,-0.1,lin_hull_coeff_data.nuuf,active,pending
-lin_hull_coeff_data,nuur,float,,,,,,-0.55023,lin_hull_coeff_data.nuur,active,pending
-lin_hull_coeff_data,nuuv,float,,,,,,-0.078,lin_hull_coeff_data.nuuv,active,pending
-lin_hull_coeff_data,nuv,float,,,,,,-0.69,lin_hull_coeff_data.nuv,active,pending
-lin_hull_coeff_data,yur,float,,,,,,0.19959,lin_hull_coeff_data.yur,active,pending
-lin_hull_coeff_data,yuur,float,,,,,,0.25947,lin_hull_coeff_data.yuur,active,pending
-lin_hull_coeff_data,yuuv,float,,,,,,-1.53736,lin_hull_coeff_data.yuuv,active,pending
-lin_hull_coeff_data,yuv,float,,,,,,-1.18797,lin_hull_coeff_data.yuv,active,pending
+main_data,beam,number,m,Ship's beam (width).,Reasonable range based on ship type.,>0,,25.2,main_data.beam,REQUIRED,
 main_data,height,int,,,,,,15,main_data.height,active,pending
-non_lin_coeff_data,cd,float,,,,,,0.78,non_lin_coeff_data.cd,active,pending
+max_rates,pdm,number,pitch/diameter ratio per second ([-]/s),Maximum pitch rate, CPP only.,,,0,max_rates.dpdmax,REQUIRED,
+max_rates,ndm,number,rpm/s,Maximum shaft speed rate.,,,,0,max_rates.dndmax,REQUIRED,
+name,ship_name,string,,,Name of the ship.,,,My Ship,name.ship_name,REQUIRED,
 non_lin_coeff_data,cdnc,float,,,,,,0.4,non_lin_coeff_data.cdnc,active,pending
-non_lin_coeff_data,cdyc,float,,,,,,0.4,non_lin_coeff_data.cdyc,active,pending
 non_lin_coeff_data,unllim,float,,,,,,3.0,non_lin_coeff_data.unllim,active,pending
-prop_char,jkqneg,list,,,,,,"[-2.0, -1.5, -1.0, -0.5, -0.32, -0.15, 0.0, 0.27, 0.5, 1.0, 1.5, 2.0]",prop_char.jkqneg,active,pending
-prop_char,jkqpos,list,,,,,,"[-0.5, -0.3947368, -0.2894736, -0.1842105, -0.0789473, 0.02631579, 0.13157895, 0.23684211, 0.34210526, 0.44736842, 0.55263158, 0.65789474, 0.76315789, 0.86842105, 0.97368421, 1.07894737, 1.18421053, 1.28947368, 1.39473684, 1.5]",prop_char.jkqpos,active,pending
-prop_char,jktneg,list,,,,,,"[-2.0, -1.0, -0.75, -0.5, -0.35, -0.2, 0.0, 0.25, 0.5, 1.0, 2.0]",prop_char.jktneg,active,pending
-prop_char,jktpos,list,,,,,,"[-0.5, -0.39473684, -0.28947368, -0.18421053, -0.07894737, 0.02631579, 0.13157895, 0.23684211, 0.34210526, 0.44736842, 0.55263158, 0.65789474, 0.76315789, 0.86842105, 0.97368421, 1.07894737, 1.18421053, 1.28947368, 1.39473684, 1.5]",prop_char.jktpos,active,pending
-prop_char,kqneg,list,,,,,,"[-0.255, -0.158, -0.087, -0.04, -0.05, -0.05, -0.05, -0.042, -0.03, 0.015, 0.07, 0.16]",prop_char.kqneg,active,pending
-prop_char,kqpos,list,,,,,,"[0.12302319, 0.11609645, 0.10916972, 0.10224298, 0.09531624, 0.0883895, 0.08146276, 0.07453602, 0.06760928, 0.06068254, 0.0537558, 0.04682906, 0.03990233, 0.03297559, 0.02604885, 0.01912211, 0.01219537, 0.00526863, -0.00165811, -0.00858485]",prop_char.kqpos,active,pending
-prop_char,ktneg,list,,,,,,"[-1.5, -0.61, -0.48, -0.44, -0.43, -0.41, -0.4, -0.24, -0.16, 0.17, 1.18]",prop_char.ktneg,active,pending
-prop_char,ktpos,list,,,,,,"[0.82858442, 0.78057805, 0.73203868, 0.6829663, 0.63336092, 0.58322254, 0.53255115, 0.48134675, 0.42960935, 0.37733895, 0.32453554, 0.27119913, 0.21732971, 0.16292729, 0.10799187, 0.05252344, -0.003478, -0.06001244, -0.11707988, -0.17468033]",prop_char.ktpos,active,pending
-res_data,vres,list,,,,,,"[0.0, 0.51, 1.03, 1.54, 2.06, 2.57, 3.09, 3.6, 4.12, 4.63, 5.14, 5.66, 6.17, 6.69, 7.2, 7.72, 8.23, 8.75, 9.26]",res_data.vres,active,pending
-resistance_data,xrr,float,,,,,,0.0,resistance_data.xrr,active,pending
-resistance_data,xvr,float,,,,,,0.27504,resistance_data.xvr,active,pending
-resistance_data,xvv,float,,,,,,-0.25,resistance_data.xvv,active,pending
-rudder_coeff_data,kr,float,,,,,,0.5,rudder_coeff_data.kr,active,pending
-rudder_coeff_data,kv,float,,,,,,-0.5,rudder_coeff_data.kv,active,pending
-rudder_coeff_data,s,float,,,,,,-0.9,rudder_coeff_data.s,active,pending
-rudder_coeff_data,xyrd,float,,,,,,-0.8,rudder_coeff_data.xyrd,active,pending
-rudder_coeff_data,ytd,float,,,,,,0.54,rudder_coeff_data.ytd,active,pending
-rudder_coeff_data,yuud,float,,,,,,0.22,rudder_coeff_data.yuud,active,pending
-section_data,bsec,list,,,,,,"[23.23, 30.03, 32.73, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 32.94, 31.92, 28.54, 22.6, 14.98, 7.01, 0.18]",section_data.bsec,active,pending
-shallow_water_coeff,cdz,float,,,,,,1.0,shallow_water_coeff.cdz,active,pending
-shallow_water_coeff,nurzc,float,,,,,,1.0,shallow_water_coeff.nurzc,active,pending
-shallow_water_coeff,nuvzc,float,,,,,,1.0,shallow_water_coeff.nuvzc,active,pending
-shallow_water_coeff,yurzc,float,,,,,,1.0,shallow_water_coeff.yurzc,active,pending
-shallow_water_coeff,yuvzc,float,,,,,,1.0,shallow_water_coeff.yuvzc,active,pending
-winch_data,wire_area,float,,,,,,0.00407,winch_data.wire_area,active,pending
-winch_data,l_tail,int,,,,,,0,winch_data.l_tail,active,pending
-winch_data,tail_elasticity,int,,,,,,0,winch_data.tail_elasticity,active,pending
-winch_data,tail_area,int,,,,,,0,winch_data.tail_area,active,pending
-winch_data,cwir,float,,,,,,1793333.0,winch_data.cwir,active,pending
-winch_data,fwhm,float,,,,,,5000000.0,winch_data.fwhm,active,pending
-winch_data,fwm,float,,,,,,5000000.0,winch_data.fwm,active,pending
-winch_data,wblo,float,,,,,,5000000.0,winch_data.wblo,active,pending
-winch_data,winm,list,,,,,,"[200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]",winch_data.winm,active,pending
-winch_data,winr,float,,,,,,0.2,winch_data.winr,active,pending
-winch_data,xkl,list,,,,,,"[55.2, 50.5, 40.9, 37.5, -52.0, -54.0, -57.5, -57.5]",winch_data.xkl,active,pending
-winch_data,ykl,list,,,,,,"[-4.2, -6.2, -8.0, -8.2, -8.4, -8.4, 2.9, 4.7]",winch_data.ykl,active,pending
-winch_data,zkl,list,,,,,,"[-15.5, -15.5, -15.5, -15.5, -14.8, -14.8, -14.8, -14.8]",winch_data.zkl,active,pending
-wind_coeff,ckin,list,,,,,,"[-0.017, -0.185, -0.45, -0.654, -0.833, -0.931, -0.945, -0.841, -0.709, -0.557, -0.367, -0.152, 0.0, 0.152, 0.367, 0.557, 0.709, 0.841, 0.945, 0.931, 0.833, 0.654, 0.45, 0.185, 0.017]",wind_coeff.ckin,active,pending
-wind_coeff,cnin,list,,,,,,"[0.0, -0.019, -0.019, -0.017, -0.01, 0.013, 0.041, 0.075, 0.103, 0.111, 0.099, 0.061, 0.0, -0.061, -0.099, -0.111, -0.103, -0.075, -0.041, -0.013, 0.01, 0.017, 0.019, 0.019, 0.0]",wind_coeff.cnin,active,pending
-wind_coeff,cxin,list,,,,,,"[-0.8, -0.702, -0.632, -0.47, -0.179, -0.031, 0.123, 0.282, 0.397, 0.483, 0.556, 0.557, 0.529, 0.557, 0.556, 0.483, 0.397, 0.282, 0.123, -0.031, -0.179, -0.47, -0.632, -0.702, -0.8]",wind_coeff.cxin,active,pending
-wind_coeff,cyin,list,,,,,,"[0.0, -0.12, -0.311, -0.461, -0.57, -0.599, -0.635, -0.607, -0.556, -0.464, -0.322, -0.146, 0.0, 0.146, 0.322, 0.464, 0.556, 0.607, 0.635, 0.599, 0.57, 0.461, 0.311, 0.12, 0.0]",wind_coeff.cyin,active,pending
-wind_data,n_ship_heights,int,,,,,,5,wind_data.n_ship_heights,active,pending
-wind_data,ship_height_bl,list,,,,,,"[10, 24, 26, 26, 10]",wind_data.ship_height_bl,active,pending
-contour_data,xqc,list,,,,,,"[87.18, 74.77, 48.97, -92.4, -99.27, -99.27, -92.4, 48.97, 74.77]",contour_data.xqc,active,pending
-contour_data,yqc,list,,,,,,"[0.46, 7.12, 13.79, 13.9, 13.9, -13.9, -13.9, -13.79, -7.12]",contour_data.yqc,active,pending
-design_particulars,a0,float,,,,,,0.98,design_particulars.a0,active,pending
-design_particulars,bblk,float,,,,,,0.0,design_particulars.bblk,active,pending
-design_particulars,bk,float,,,,,,0.0,design_particulars.bk,active,pending
-design_particulars,br,float,,,,,,0.0,design_particulars.br,active,pending
-design_particulars,bra,float,,,,,,0.0,design_particulars.bra,active,pending
-design_particulars,lblk,float,,,,,,0.0,design_particulars.lblk,active,pending
-design_particulars,slag,float,,,,,,1.0,design_particulars.slag,active,pending
-dolph_data,kdol,float,,,,,,11000000.0,dolph_data.kdol,active,pending
-dolph_data,mydol,float,,,,,,0.1,dolph_data.mydol,active,pending
-dolph_data,nydol,float,,,,,,5000000.0,dolph_data.nydol,active,pending
-isherwood_data,ass,str,,,,,,2675,isherwood_data.ass,active,pending
-isherwood_data,c,str,,,,,,94,isherwood_data.c,active,pending
-isherwood_data,m,str,,,,,,1,isherwood_data.m,active,pending
-isherwood_data,sw,str,,,,,,271,isherwood_data.sw,active,pending
-lin_hull_coeff_data,slev,float,,,,,,0.0,lin_hull_coeff_data.slev,active,pending
-quay_data,kquay,float,,,,,,1000000.0,quay_data.kquay,active,pending
-quay_data,myq,float,,,,,,0.2,quay_data.myq,active,pending
-quay_data,nyq,float,,,,,,-5000000.0,quay_data.nyq,active,pending
-quay_data,redfac,float,,,,,,1.0,quay_data.redfac,active,pending
-res_shallow_data,fnhr,list,,,,,,[],res_shallow_data.fnhr,active,pending
-res_shallow_data,sres1,list,,,,,,[],res_shallow_data.sres1,active,pending
-res_shallow_data,sres2,list,,,,,,[],res_shallow_data.sres2,active,pending
-res_shallow_data,sres3,list,,,,,,[],res_shallow_data.sres3,active,pending
-res_shallow_data,sres4,list,,,,,,[],res_shallow_data.sres4,active,pending
-res_shallow_data,sres5,list,,,,,,[],res_shallow_data.sres5,active,pending
-rudder_coeff_data,slask1,float,,,,,,0.0,rudder_coeff_data.slask1,active,pending
-rudder_coeff_data,slask2,float,,,,,,0.6,rudder_coeff_data.slask2,active,pending
-rudder_coeff_data,yuuds,float,,,,,,0.0,rudder_coeff_data.yuuds,active,pending
-section_data,tsec,list,,,,,,"[0.5302857143, 1.526857143, 2.852571429, 4.178285714, 5.293714286, 5.952, 6.409142857, 6.482285714, 6.409142857, 6.482285714, 6.409142857, 6.482285714, 6.4, 6.409142857, 6.418285714, 6.4, 6.4, 6.473142857, 6.418285714, 6.326857143, 5.860571429]",section_data.tsec,active,pending
-ap_data,k0ap,float,,,,,,0.0,ap_data.k0ap,active,pending
-ap_data,kdap,float,,,,,,0.0,ap_data.kdap,active,pending
-design_particulars,abulb,float,,,,,,0.0,design_particulars.abulb,active,pending
-design_particulars,loadcond,float,,,,,,0.0,design_particulars.loadcond,active,pending
-design_particulars,rskeg,float,,,,,,0.0,design_particulars.rskeg,active,pending
-design_particulars,sr,float,,,,,,0.0,design_particulars.sr,active,pending
-design_particulars,tskeg,float,,,,,,0.0,design_particulars.tskeg,active,pending
-flume_data,dens,float,,,,,,0.0,flume_data.dens,active,pending
-interceptor_data,cicfi,float,,,,,,0.0,interceptor_data.cicfi,active,pending
-interceptor_data,cici,float,,,,,,0.0,interceptor_data.cici,active,pending
-interceptor_data,cicp,float,,,,,,0.0,interceptor_data.cicp,active,pending
-interceptor_data,cicpsi,float,,,,,,0.0,interceptor_data.cicpsi,active,pending
-interceptor_data,cicq,float,,,,,,0.0,interceptor_data.cicq,active,pending
-interceptor_data,cicr,float,,,,,,0.0,interceptor_data.cicr,active,pending
-interceptor_data,cicte,float,,,,,,0.0,interceptor_data.cicte,active,pending
-interceptor_data,gic,float,,,,,,0.0,interceptor_data.gic,active,pending
-interceptor_data,hicmax,float,,,,,,0.0,interceptor_data.hicmax,active,pending
-interceptor_data,hicr,float,,,,,,0.0,interceptor_data.hicr,active,pending
-interceptor_data,lic,float,,,,,,0.0,interceptor_data.lic,active,pending
-interceptor_data,yyic,float,,,,,,0.0,interceptor_data.yyic,active,pending
-interceptor_data,zzic,float,,,,,,0.0,interceptor_data.zzic,active,pending
-load_regulator,cpdd,float,,,,,,0.3,load_regulator.cpdd,active,pending
-load_regulator,cpdi,float,,,,,,0.03,load_regulator.cpdi,active,pending
-load_regulator,cpdp,float,,,,,,0.2,load_regulator.cpdp,active,pending
+non_lin_coeff_data,cdyc,float,,,,,,0.4,non_lin_coeff_data.cdyc,active,pending
+non_lin_coeff_data,cd,float,,,,,,0.78,non_lin_coeff_data.cd,active,pending
+pitch_servo_data,pdr,list,,,,,,"[0.1, 0.1]",pitch_servo_data.pdr,active,pending
+pitch_servo_data,incp,int,,,,,,1,pitch_servo_data.incp,active,pending
+pitch_servo_data,pds,list,,,,,,[-0.65],pitch_servo_data.pds,active,pending
+pitch_servo_data,pdh,list,,,,,,[0.81],pitch_servo_data.pdh,active,pending
+pitch_servo_data,ipdr,int,,,,,,2,pitch_servo_data.ipdr,active,pending
+pitch_servo_data,pdl,list,,,,,,"[-0.8, 0.8]",pitch_servo_data.pdl,active,pending
 predictor,dte,float,,,,,,0.0,predictor.dte,active,pending
 predictor,dtp,float,,,,,,0.0,predictor.dtp,active,pending
 predictor,ipred,float,,,,,,0.0,predictor.ipred,active,pending
+principal_particulars,tap,number,m,Draft at AP (design). Should be consistent with t and tfp.,,,,8.5,principal_particulars.tap,REQUIRED,
+principal_particulars,t,number,m,Mean draft (design).  Should be consistent with ta and tf.,,,,8.5,principal_particulars.t,REQUIRED,
+principal_particulars,awp,number,m^2,Waterplane area (design).,,,,1850,principal_particulars.awp,REQUIRED,
+principal_particulars,tfp,number,m,Draft at FP (design). Should be consistent with t and tap.,,,,8.5,principal_particulars.tfp,REQUIRED,
+principal_particulars,TF,number,m,Draft at forward perpendicular.,,,,8.5,principal_particulars.TF,REQUIRED,
+principal_particulars,volume,number,m^3,Displaced volume (design). Use consistent units (m^3).,Must be consistent with disp.,,,14700,principal_particulars.volume,REQUIRED,
+principal_particulars,lcf,number,m,Longitudinal centre of flotation (from Lpp/2).,Positive forward of amidships.,,,74.0,principal_particulars.lcf,REQUIRED,
+principal_particulars,TA,number,m,Draft at aft perpendicular.,,,,8.5,principal_particulars.TA,REQUIRED,
+prop_char,ktneg,list,,,,,,"[-1.5, -0.61, -0.48, -0.44, -0.43, -0.41, -0.4, -0.24, -0.16, 0.17, 1.18]",prop_char.ktneg,active,pending
+prop_char,kqpos,list,,,,,,"[0.12302319, 0.11609645, 0.10916972, 0.10224298, 0.09531624, 0.0883895, 0.08146276, 0.07453602, 0.06760928, 0.06068254, 0.0537558, 0.04682906, 0.03990233, 0.03297559, 0.02604885, 0.01912211, 0.01219537, 0.00526863, -0.00165811, -0.00858485]",prop_char.kqpos,active,pending
+prop_char,kqneg,list,,,,,,"[-0.255, -0.158, -0.087, -0.04, -0.05, -0.05, -0.05, -0.042, -0.03, 0.015, 0.07, 0.16]",prop_char.kqneg,active,pending
+prop_char,kq,number,[-],Torque coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq,,"[0.02, 0.018, 0.016, 0.014, 0.012, 0.01, 0.008, 0.006, 0.004]",prop_char.kq,CONDITIONAL,
+prop_char,kt,number,[-],Thrust coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq,,"[0.2, 0.18, 0.16, 0.14, 0.12, 0.1, 0.08, 0.06, 0.04]",prop_char.kt,CONDITIONAL,
+prop_char,ktpos,list,,,,,,"[0.82858442, 0.78057805, 0.73203868, 0.6829663, 0.63336092, 0.58322254, 0.53255115, 0.48134675, 0.42960935, 0.37733895, 0.32453554, 0.27119913, 0.21732971, 0.16292729, 0.10799187, 0.05252344, -0.003478, -0.06001244, -0.11707988, -0.17468033]",prop_char.ktpos,active,pending
+prop_char,jktneg,list,,,,,,"[-2.0, -1.0, -0.75, -0.5, -0.35, -0.2, 0.0, 0.25, 0.5, 1.0, 2.0]",prop_char.jktneg,active,pending
+prop_char,j,number,[-],Advance coefficient values for open water curve.,This section is REQUIRED if no detailed propeller coefficients are provided (fix_prop_data OR cp_prop_data). MUST be an array. Number of elements should match across j, kq, and kt.,"[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]",prop_char.j,CONDITIONAL,
+prop_char,jkqneg,list,,,,,,"[-2.0, -1.5, -1.0, -0.5, -0.32, -0.15, 0.0, 0.27, 0.5, 1.0, 1.5, 2.0]",prop_char.jkqneg,active,pending
+prop_char,jkqpos,list,,,,,,"[-0.5, -0.3947368, -0.2894736, -0.1842105, -0.0789473, 0.02631579, 0.13157895, 0.23684211, 0.34210526, 0.44736842, 0.55263158, 0.65789474, 0.76315789, 0.86842105, 0.97368421, 1.07894737, 1.18421053, 1.28947368, 1.39473684, 1.5]",prop_char.jkqpos,active,pending
+prop_char,jktpos,list,,,,,,"[-0.5, -0.39473684, -0.28947368, -0.18421053, -0.07894737, 0.02631579, 0.13157895, 0.23684211, 0.34210526, 0.44736842, 0.55263158, 0.65789474, 0.76315789, 0.86842105, 0.97368421, 1.07894737, 1.18421053, 1.28947368, 1.39473684, 1.5]",prop_char.jktpos,active,pending
+propeller_coeff_data,ckqstern,number,,Coefficient for Kq astern correction.,,,,1.0,propeller_coeff_data.ckqstern,REQUIRED,
+propeller_coeff_data,ktyh,number,,Coefficient for transverse force in y direction, hull interaction.,,,0,propeller_coeff_data.ktyh,REQUIRED,
+propeller_coeff_data,cstn,number,Add dimensionless units ([-]),Coefficient for stern shape correction.,,,,1.0,propeller_coeff_data.cstn,REQUIRED,
+propeller_coeff_data,ktys,number,,Coefficient for transverse force in y direction.,,,,0,propeller_coeff_data.ktys,REQUIRED,
+propeller_coeff_data,,array,,,,,,,,,
+propeller_coeff_data,ckqhead,number,,Coefficient for Kq ahead correction.,,,,1.0,propeller_coeff_data.ckqhead,REQUIRED,
+propeller_coeff_data,ckthead,number,,Coefficient for Kt ahead correction.,,,,1.0,propeller_coeff_data.ckthead,REQUIRED,
+propeller_coeff_data,cktstern,number,,Coefficient for Kt astern correction.,,,,1.0,propeller_coeff_data.cktstern,REQUIRED,
+quay_data,redfac,float,,,,,,1.0,quay_data.redfac,active,pending
+quay_data,myq,float,,,,,,0.2,quay_data.myq,active,pending
+quay_data,kquay,float,,,,,,1000000.0,quay_data.kquay,active,pending
+quay_data,nyq,float,,,,,,-5000000.0,quay_data.nyq,active,pending
+res_data,reskn,number,m/s,Array of ship speeds for resistance data.,,, 1.03," 2.06]""",res_data.vres,OPTIONAL,
+res_data,res,number,N,Array of resistance values.,corresponding to the speeds in vres,,,"[10000, 52000, 108000]",res_data.res,OPTIONAL,
+res_data,vres,list,,,,,,"[0.0, 0.51, 1.03, 1.54, 2.06, 2.57, 3.09, 3.6, 4.12, 4.63, 5.14, 5.66, 6.17, 6.69, 7.2, 7.72, 8.23, 8.75, 9.26]",res_data.vres,active,pending
+res_shallow_data,fnhr,list,,,,,,[],res_shallow_data.fnhr,active,pending
+res_shallow_data,sres2,list,,,,,,[],res_shallow_data.sres2,active,pending
+res_shallow_data,sres3,list,,,,,,[],res_shallow_data.sres3,active,pending
+res_shallow_data,sres1,list,,,,,,[],res_shallow_data.sres1,active,pending
+res_shallow_data,sres5,list,,,,,,[],res_shallow_data.sres5,active,pending
+res_shallow_data,sres4,list,,,,,,[],res_shallow_data.sres4,active,pending
+resistance_data,r100d,number,,Resistance at 100% displacement.,,,,,,,
+resistance_data,r25d,number,,Resistance at 25% displacement.,,,,,,,
+resistance_data,xvv,float,,,,,,-0.25,resistance_data.xvv,active,pending
+resistance_data,xrr,float,,,,,,0.0,resistance_data.xrr,active,pending
+resistance_data,res,number[],,Resistance data,,,0,,resistance_data.r25d,OPTIONAL,
+resistance_data,r50d,number,,Resistance at 50% displacement.,,,,,,,
+resistance_data,xvr,float,,,,,,0.27504,resistance_data.xvr,active,pending
+resistance_data,reskn,number[],,Resistance data speed,,,0,,resistance_data.r100d,OPTIONAL,
+resistance_data,r75d,number,,Resistance at 75% displacement.,,,,,,,
+resistance_data,rcors,number,,Resistance correction factor.,,,,,,,
+restoring_coeff_data,c44,number,,Restoring coefficient in roll.,,,,0,restoring_coeff_data.c44,OPTIONAL,
+restoring_coeff_data,c11,number,,Restoring coefficient in surge.,,,,0,restoring_coeff_data.c11,OPTIONAL,
+restoring_coeff_data,c55,number,,Restoring coefficient in pitch.,,,,0,restoring_coeff_data.c55,OPTIONAL,
+restoring_coeff_data,c33,number,,Restoring coefficient in heave.,,,,0,restoring_coeff_data.c33,OPTIONAL,
+restoring_coeff_data,c66,number,,Restoring coefficient in yaw.,,,,0,restoring_coeff_data.c66,OPTIONAL,
+restoring_coeff_data,c35,number,,Restoring coefficient in heave-pitch coupling.,,,,0,restoring_coeff_data.c35,OPTIONAL,
+restoring_coeff_data,c15,number,,Restoring coefficient in surge-roll coupling.,,,,0,restoring_coeff_data.c15,OPTIONAL,
+restoring_coeff_data,c46,number,,Restoring coefficient in roll-yaw coupling.,,,,0,restoring_coeff_data.c46,OPTIONAL,
+restoring_coeff_data,c24,number,,Restoring coefficient in sway-roll coupling.,,,,0,restoring_coeff_data.c24,OPTIONAL,
+restoring_coeff_data,c26,number,,Restoring coefficient in sway-yaw coupling.,,,,0,restoring_coeff_data.c26,OPTIONAL,
+restoring_coeff_data,c22,number,,Restoring coefficient in sway.,,,,0,restoring_coeff_data.c22,OPTIONAL,
 rpm_governor,cdrg,float,,,,,,1.0,rpm_governor.cdrg,active,pending
-rpm_governor,cirg,float,,,,,,0.3,rpm_governor.cirg,active,pending
 rpm_governor,cprg,float,,,,,,3.0,rpm_governor.cprg,active,pending
+rpm_governor,cirg,float,,,,,,0.3,rpm_governor.cirg,active,pending
+rudder_coeff_data,yuuds,float,,,,,,0.0,rudder_coeff_data.yuuds,active,pending
+rudder_coeff_data,slask1,float,,,,,,0.0,rudder_coeff_data.slask1,active,pending
+rudder_coeff_data,s,float,,,,,,-0.9,rudder_coeff_data.s,active,pending
+rudder_coeff_data,kr,float,,,,,,0.5,rudder_coeff_data.kr,active,pending
+rudder_coeff_data,kv,float,,,,,,-0.5,rudder_coeff_data.kv,active,pending
+rudder_coeff_data,ytd,float,,,,,,0.54,rudder_coeff_data.ytd,active,pending
+rudder_coeff_data,yuud,float,,,,,,0.22,rudder_coeff_data.yuud,active,pending
+rudder_coeff_data,xyrd,float,,,,,,-0.8,rudder_coeff_data.xyrd,active,pending
+rudder_coeff_data,slask2,float,,,,,,0.6,rudder_coeff_data.slask2,active,pending
+rudder_data,sweep,number,rad,Sweep angle of each rudder.,,,,"[0.1, 0.1]",rudder_data.sweep,REQUIRED,
+rudder_data,irudprop,number,,Propeller associated with each rudder. Uses propeller_id from fix_prop_data or cp_prop_data.,Reference propeller by its unique propeller_id, not array index. MUST be a valid propeller_id.,,"[1, 2]",rudder_data.irudprop,REQUIRED,
+rudder_data,kutzner,number,,Kutzner coefficient for each rudder.,,,,1,rudder_data.kutzner,REQUIRED,
+rudder_data,span,number,m,Span of each rudder.,,,,"[5.0, 5.0]",rudder_data.span,REQUIRED,
+rudder_data,skeg,number,,Skeg presence indicator for each rudder (0=no skeg, 1=skeg).,,,"[0, 0]",rudder_data.skeg,REQUIRED,
+rudder_data,nrudder,number,,Number of rudders.,,,,2,rudder_data.nrudder,REQUIRED,
+rudder_data,zr,number,m,Vertical position of each rudder stock (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,"[-10.0, -10.0]",rudder_data.zr,REQUIRED,
+rudder_data,taper,number,,Taper ratio of each rudder.,,,,"[0.8, 0.8]",rudder_data.taper,REQUIRED,
+rudder_data,xr,number,m,Longitudinal position of each rudder stock (from Lpp/2).,,,,"[5.0, 5.0]",rudder_data.xr,REQUIRED,
+rudder_limitations,max_rudder_rate,number,rad/s,Maximum rudder rate.,,,,0.12,rudder_limitations.max_rudder_rate,REQUIRED,
+rudder_limitations,rudmin,number,rad,Minimum rudder angle.,,,,-0.61,rudder_limitations.rudmin,REQUIRED,
+rudder_limitations,rudmax,number,rad,Maximum rudder angle.,,,,0.61,rudder_limitations.rudmax,REQUIRED,
+rudder_particulars,sweep,number,rad,Sweep Angle.,,,,0.1,rudder_particulars.sweep,REQUIRED,
+rudder_particulars,id,string,,,Unique ID of this rudder setting,,,rudder_set_1,rudder_particulars.id,REQUIRED,
+rudder_particulars,ar,number,m^2,Area of one of the rudders,,,,15,rudder_particulars.ar,REQUIRED,
+rudder_particulars,kutzner,number,,Kutzner coefficient,,,,1,rudder_particulars.kutzner,REQUIRED,
+rudder_particulars,protcp,number,,Propeller type, for CPP set to 0.,,,0,rudder_particulars.protcp,REQUIRED,
+rudder_particulars,protfix,number,,Propeller type, for FPP set to 0.,,,0,rudder_particulars.protfix,REQUIRED,
+rudder_particulars,zr,number,m,Height of the rudder stock, from baseline.,SEAMAN Z-axis is positive *downwards*.,,-10,rudder_particulars.zr,REQUIRED,
+rudder_particulars,span,number,m,Rudder Span,,,,5,rudder_particulars.span,REQUIRED,
+rudder_particulars,cr,number,m,Rudder chord,,,,3,rudder_particulars.cr,REQUIRED,
+rudder_particulars,n,number,,Number of rudders in this set.,,,,2,rudder_particulars.n,REQUIRED,
+rudder_particulars,tcrudder, number, s, Rudder Time Constant,,,,5,rudder_particulars.tcrudder,REQUIRED,
+rudder_particulars,taper,number,,Taper ratio,,,,0.8,rudder_particulars.taper,REQUIRED,
+rudder_particulars,skeg,number,,Skeg present flag,,,,0,rudder_particulars.skeg,REQUIRED,
+rudder_particulars,xr,number,m,Longitudinal position of the rudder from Lpp/2.,,,,5,rudder_particulars.xr,REQUIRED,
+section_coord_data,z,array of number,m,Vertical position of the design waterline relative to the baseline. SEAMAN Z-axis is positive downwards. This value should generally be negative or zero,"SEAMAN Z-axis is positive downwards. This value should generally be negative or zero. If omitted, sections are assumed to be equally spaced based on nsec.",,,,section_coord_data.z,OPTIONAL,
+section_coord_data,y,array of number,m,Half-breadth of each section at the design waterline.,"If omitted, sections are assumed to be equally spaced based on nsec.",,,"[0.0, 2.5, 5.0, ..., 12.6]",section_coord_data.y,CONDITIONAL,
+section_coord_data,x,number,m,Longitudinal position of each section (from Lpp/2).,"Positive forward of AP. If omitted, sections are assumed to be equally spaced based on nsec.",Must be in ascending or descending order,,"[0.0, 7.5, 15.0, ..., 150.5]",section_coord_data.x,OPTIONAL,
+section_data,nsec,number,,Number of sections used to define the underwater hull form.,"If section_coord_data is provided, nsec MUST match the number of sections defined there. If section_coord_data is absent, nsec should be 11 or 21.","If section_coord_data is present, MUST equal the length of section_coord_data arrays. Otherwise, 11 or 21.",,21,section_data.nsec,OPTIONAL,
+section_data,tsec,list,,,,,,"[0.5302857143, 1.526857143, 2.852571429, 4.178285714, 5.293714286, 5.952, 6.409142857, 6.482285714, 6.409142857, 6.482285714, 6.409142857, 6.482285714, 6.4, 6.409142857, 6.418285714, 6.4, 6.4, 6.473142857, 6.418285714, 6.326857143, 5.860571429]",section_data.tsec,active,pending
+section_data,asec,array of number,m^2,Transverse sectional area below the design waterline for each section.,Number of elements MUST equal nsec. The order MUST correspond to the section positions.,>= 0,,"[0.0, 15.0, 30.0, ..., 180.0]",section_data.asec,OPTIONAL,
+section_data,bsec,list,,,,,,"[23.23, 30.03, 32.73, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 32.94, 31.92, 28.54, 22.6, 14.98, 7.01, 0.18]",section_data.bsec,active,pending
+shallow_water_coeff,nurzc,float,,,,,,1.0,shallow_water_coeff.nurzc,active,pending
+shallow_water_coeff,yuvzc,float,,,,,,1.0,shallow_water_coeff.yuvzc,active,pending
+shallow_water_coeff,nuvzc,float,,,,,,1.0,shallow_water_coeff.nuvzc,active,pending
+shallow_water_coeff,yurzc,float,,,,,,1.0,shallow_water_coeff.yurzc,active,pending
+shallow_water_coeff,cdz,float,,,,,,1.0,shallow_water_coeff.cdz,active,pending
+ship_interaction,int_type,number,,Interaction calculation type,,,1,,ship_interaction.int_type,OPTIONAL,
+ship_interaction,cymt,number,,Sway force coefficient,,,1,,ship_interaction.cymt,OPTIONAL,
+ship_interaction,cnmt,number,,Yaw moment coefficient,,,1,,ship_interaction.cnmt,OPTIONAL,
+shipcon_tug,linecon_points,z,number,m,Z-coordinate of the connection point.,,,,-16,shipcon_tug.linecon_points.z,
+shipcon_tug,linecon_points,b,number,,Damping coefficient of the connection line.,,,,60000,shipcon_tug.linecon_points.b,
+shipcon_tug,linecon_points,k,number,,Spring constant of the connection line.,,,,2000000,shipcon_tug.linecon_points.k,
+shipcon_tug,linecon_points,y,number,m,Y-coordinate of the connection point.,,,,14,shipcon_tug.linecon_points.y,
+shipcon_tug,linecon_points,d,number,,Diameter of the connection line.,,,,100000,shipcon_tug.linecon_points.d,
+shipcon_tug,linecon_points,x,number,m,X-coordinate of the connection point.,,,,-75,shipcon_tug.linecon_points.x,
+shipcon_tug,linecon_points,-,array,-,Array of objects defining line connection points.,,,,shipcon_tug.linecon_points,OPTIONAL,
+shipcon_tug,linecon_points,name,string,,Name of the connection point.,,,,"""TC1""",shipcon_tug.linecon_points.name,
+shipcon_tug,linecon_points,bl,number,,Breaking load of the connection line.,,,,700000,shipcon_tug.linecon_points.bl,
+simulation_parameters,tmax,number,s,Maximum simulation time.,,,,100,simulation_parameters.tmax,REQUIRED,
+simulation_parameters,dt,number,s,Simulation time step.,,,,0.01,simulation_parameters.dt,REQUIRED,
+thruster_data,nth,number,,Number of thrusters.,,,,0,thruster_data.nth,OPTIONAL,
+thruster_data,xth,number,m,Longitudinal position of thruster (from Lpp/2).,,,,0,thruster_data.xth,OPTIONAL,
+thruster_data,powth,number,kW,Power of thruster.,,,,0,thruster_data.powth,OPTIONAL,
+thruster_data,kth,number,,K value, if 0, then use open water curve for the thruster.,,0,thruster_data.kth,OPTIONAL,
+thruster_data,zth,number,m,Vertical position of thruster (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,0,thruster_data.zth,OPTIONAL,
+thruster_data,dth,number,m,Diameter of thruster.,,,,0,thruster_data.dth,OPTIONAL,
+thruster_data,yth,number,m,Transverse position of thruster (from centerline).,,,,0,thruster_data.yth,OPTIONAL,
+thruster_data,ath,number,m^2,Area of thruster tunnel opening.,,,,0,thruster_data.ath,OPTIONAL,
+thruster_data,hth,number,m,Distance from tunnel opening to the center of the thruster.,,,,0,thruster_data.hth,OPTIONAL,
+thruster_data,bth,number,,Thruster coefficient.,,,,0,thruster_data.bth,OPTIONAL,
+thruster_data,ith,number,,Type of thruster. (Tunnel = 0 ; Azimuth = 1),,,,0,thruster_data.ith,OPTIONAL,
+thruster_data,cth,number,,Resistance coefficient of tunnel.,,,,0,thruster_data.cth,OPTIONAL,
+tug_data,linecon_points,array,,Array of objects defining line connection points.,Each object in this array defines a single line connection point for the current tug.,,,,tug_data[*].linecon_points,CONDITIONAL,
+tug_data,linecon_points.b,number,,Damping coefficient of the connection line.,,,,60000,tug_data[].linecon_points[].b,CONDITIONAL,
+tug_data,linecon_points.y,number,m,Y-coordinate of the connection point.,,,,14,tug_data[].linecon_points[].y,CONDITIONAL,
+tug_data,linecon_points.z,number,m,Z-coordinate of the connection point.,,,,-16,tug_data[].linecon_points[].z,CONDITIONAL,
+tug_data,linecon_points.d,number,,Diameter of the connection line.,,,,100000,tug_data[].linecon_points[].d,CONDITIONAL,
+tug_data,ltug,number,m,Length of tug line.,,,,0,tug_data.ltug,REQUIRED,
+tug_data,-,array,,Tug data.,"An array of objects, each representing a tug.",,,,tug_data,OPTIONAL,
+tug_data,xptug,number,m,Tug X-coordinate (relative to own ship's Lpp/2).,+ve forward,,,-75,tug_data[*].xptug,CONDITIONAL,
+tug_data,linecon_points.x,number,m,X-coordinate of the connection point.,,,,-75,tug_data[].linecon_points[].x,CONDITIONAL,
+tug_data,linecon_points.k,number,,Spring constant of the connection line.,,,,2000000,tug_data[].linecon_points[].k,CONDITIONAL,
+tug_data,yptug,number,m,Tug Y-coordinate (relative to own ship's centerline).,+ve port,,,0,tug_data[*].yptug,CONDITIONAL,
+tug_data,klt,number,,Tug line stiffness.,,,,,tug_data[*].klt,CONDITIONAL,
+tug_data,tugb,number,kN,Tug bollard pull.,,,,,tug_data[*].tugb,CONDITIONAL,
+tug_data,taut,number,deg,Tug heading (relative to own ship).,,,,,tug_data[*].taut,CONDITIONAL,
+tug_data,ytug,number,m,Transverse position of tug connection point (from centerline).,,,,0,tug_data.ytug,REQUIRED,
+tug_data,npt,number,,Tug propeller type.,,,,,tug_data[*].npt,CONDITIONAL,
+tug_data,ntug,number,,Number of tugs.,,,,0,tug_data.ntug,REQUIRED,
+tug_data,linecon_points.bl,number,,Breaking load of the connection line.,,,,700000,tug_data[].linecon_points[].bl,CONDITIONAL,
+tug_data,linecon_points.name,string,,Name of the connection point.,,,,"""TC1""",tug_data[].linecon_points[].name,CONDITIONAL,
+tug_data,zptug,number,m,Tug Z-coordinate (relative to own ship's baseline).,SEAMAN Z-axis is positive downwards.,,,-15,tug_data[*].zptug,CONDITIONAL,
+tug_data,ztug,number,m,Vertical position of tug connection point (from baseline).,SEAMAN Z-axis is positive *downwards*.,,,0,tug_data.ztug,REQUIRED,
+tug_data,xtug,number,m,Longitudinal position of tug connection point (from Lpp/2).,,,,0,tug_data.xtug,REQUIRED,
+tug_data,htug,number,kN,Maximum bollard pull of tug.,,,,0,tug_data.htug,REQUIRED,
+tug_data,tugh,number,deg,Tug heading (absolute).,,,,,tug_data[*].tugh,CONDITIONAL,
+tug_data,tugv,number,m/s,Tug speed.,,,,,tug_data[*].tugv,CONDITIONAL,
+wave_coeff_data,cfal,,,Wave coefficient (alpha).,,,,,,,
+wave_coeff_data,-,object,,,,,,,,OPTIONAL,
+wave_coeff_data,cfal,number,,Wave coefficient (alpha).,,,,1,.wave_coeff_data.cfal,OPTIONAL,
+winch_data,fwm,float,,,,,,5000000.0,winch_data.fwm,active,pending
+winch_data,winm,list,,,,,,"[200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0, 200.0]",winch_data.winm,active,pending
+winch_data,tail_area,int,,,,,,0,winch_data.tail_area,active,pending
+winch_data,wire_area,float,,,,,,0.00407,winch_data.wire_area,active,pending
+winch_data,fwhm,float,,,,,,5000000.0,winch_data.fwhm,active,pending
+winch_data,xkl,list,,,,,,"[55.2, 50.5, 40.9, 37.5, -52.0, -54.0, -57.5, -57.5]",winch_data.xkl,active,pending
+winch_data,cwir,float,,,,,,1793333.0,winch_data.cwir,active,pending
+winch_data,winr,float,,,,,,0.2,winch_data.winr,active,pending
+winch_data,ykl,list,,,,,,"[-4.2, -6.2, -8.0, -8.2, -8.4, -8.4, 2.9, 4.7]",winch_data.ykl,active,pending
+winch_data,zkl,list,,,,,,"[-15.5, -15.5, -15.5, -15.5, -14.8, -14.8, -14.8, -14.8]",winch_data.zkl,active,pending
+winch_data,wblo,float,,,,,,5000000.0,winch_data.wblo,active,pending
+winch_data,tail_elasticity,int,,,,,,0,winch_data.tail_elasticity,active,pending
+winch_data,l_tail,int,,,,,,0,winch_data.l_tail,active,pending
+wind_coeff,ckin,list,,,,,,"[-0.017, -0.185, -0.45, -0.654, -0.833, -0.931, -0.945, -0.841, -0.709, -0.557, -0.367, -0.152, 0.0, 0.152, 0.367, 0.557, 0.709, 0.841, 0.945, 0.931, 0.833, 0.654, 0.45, 0.185, 0.017]",wind_coeff.ckin,active,pending
+wind_coeff,cn,array of number,-,Yawing moment wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[0.0, 0.1, ..., 0.0]",wind_coeff.cn,CONDITIONAL,
+wind_coeff,cyin,list,,,,,,"[0.0, -0.12, -0.311, -0.461, -0.57, -0.599, -0.635, -0.607, -0.556, -0.464, -0.322, -0.146, 0.0, 0.146, 0.322, 0.464, 0.556, 0.607, 0.635, 0.599, 0.57, 0.461, 0.311, 0.12, 0.0]",wind_coeff.cyin,active,pending
+wind_coeff,cy,array of number,-,Transverse wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[0.0, 0.2, ..., 0.0]",wind_coeff.cy,CONDITIONAL,
+wind_coeff,alfa,array of number,deg,"Relative wind angles corresponding to the coefficients in cx, cy, and cn.","Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table. Values must be increasing","Number of elements must match cx, cy, cn.",,"[0, 10, ..., 360]",wind_coeff.alfa,CONDITIONAL,
+wind_coeff,cm,array of number,,Wind heeling moment coefficient.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.","Number of elements must match cx, cy, cn.",,,wind_coeff.cm,CONDITIONAL,
+wind_coeff,cxin,list,,,,,,"[-0.8, -0.702, -0.632, -0.47, -0.179, -0.031, 0.123, 0.282, 0.397, 0.483, 0.556, 0.557, 0.529, 0.557, 0.556, 0.483, 0.397, 0.282, 0.123, -0.031, -0.179, -0.47, -0.632, -0.702, -0.8]",wind_coeff.cxin,active,pending
+wind_coeff,cnin,list,,,,,,"[0.0, -0.019, -0.019, -0.017, -0.01, 0.013, 0.041, 0.075, 0.103, 0.111, 0.099, 0.061, 0.0, -0.061, -0.099, -0.111, -0.103, -0.075, -0.041, -0.013, 0.01, 0.017, 0.019, 0.019, 0.0]",wind_coeff.cnin,active,pending
+wind_coeff,cx,array of number,-,Longitudinal wind force coefficients for various wind directions.,"Array lengths of cx, cy, cn, and alfa MUST be equal. Represents a lookup table.",Number of elements must match alfa.,,"[-0.8, -0.7, ..., 0.8]",wind_coeff.cx,CONDITIONAL,
+wind_data,h0,number,m,Reference height for wind speed.,,,10,10,wind_data.h0,REQUIRED,
+wind_data,ff,number,-,Form factor for wind resistance calculation.,,,1,1,wind_data.ff,REQUIRED,
+wind_data,wind_heading,number,deg,Direction of wind (relative to North).,Only required if wcat is 1 or 2.,,,0,wind_data.wind_heading,CONDITIONAL,
+wind_data,z_wind_area,number,m,"Vertical center of wind area, from baseline., SEAMAN Z-axis is positive downwards.",,,0,0,wind_data.z_wind_area,OPTIONAL,
+wind_data,wind_speed,number,m/s,Wind speed at reference height.,Only required if wcat is 1 or 2.,,,10,wind_data.wind_speed,CONDITIONAL,
+wind_data,is,number,-,"Wind spectrum type (1=constant, 2=Harris, 3=Ochi, 4=user-defined).",,,1,1,wind_data.is,REQUIRED,
+wind_data,iw,number,-,"Wind direction convention (1=from, 2=to).",,,1,1,wind_data.iw,REQUIRED,
+wind_data,at,number,m^2,Transverse projected area of the ship above the waterline (used for wind force calculations).,"Deprecated, use trans_wind_area instead.",>= 0,,996,wind_data.at,DEPRECATED,
+wind_data,ship_height_bl,list,,,,,,"[10, 24, 26, 26, 10]",wind_data.ship_height_bl,active,pending
+wind_data,wcat,number,,Code representing the category for wind calculations.,3 when coefficients are from an external source (Vindkoefficienter_20211202.xlsx). Other values might indicate different calculation methods.,,3,3,wind_data.wcat,REQUIRED,
+wind_data,x_wind_area,number,m,"Longitudinal center of wind area from Lpp/2., +ve forward.",,,0,0,wind_data.x_wind_area,OPTIONAL,
+wind_data,lat_wind_area,number,m^2,Lateral projected area for wind.,This is the correct field to use.,>= 0,,6185,wind_data.lat_wind_area,REQUIRED,
+wind_data,al,number,m^2,Lateral projected area of the ship above the waterline (used for wind force calculations).,"Deprecated, use lat_wind_area instead.",>= 0,,6185,wind_data.al,DEPRECATED,
+wind_data,n_ship_heights,int,,,,,,5,wind_data.n_ship_heights,active,pending
+wind_data,trans_wind_area,number,m^2,Transverse projected area for wind.,This is the correct field to use.,>= 0,,996,wind_data.trans_wind_area,REQUIRED,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
