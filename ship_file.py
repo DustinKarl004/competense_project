@@ -98,8 +98,10 @@ for section, fields in new_data.items():
         logging.warning(f"Skipping section '{section}' because it is not a dictionary.")
         print(f"Warning: Skipping section '{section}' because it is not a dictionary.")
 
-# Step 6: Save the updated DataFrame back to the same CSV file
+# Step 6: Sort the DataFrame by the 'section' column alphabetically
+df = df.sort_values(by='section')
+
+# Step 7: Save the updated DataFrame back to the same CSV file
 df.to_csv(csv_file, index=False)
 logging.info(f"Updated CSV file saved as '{csv_file}'.")
 print(f"Updated CSV file saved as '{csv_file}'.")
-
